@@ -304,7 +304,7 @@ public class Configuration implements Serializable {
      * If the configuration file is not found, an {@code IOException} is thrown.
      */
     @PostConstruct
-    private void readProperties() {
+    public void readProperties() {
         writeLock.lock();
         try {
             logger.debug(
