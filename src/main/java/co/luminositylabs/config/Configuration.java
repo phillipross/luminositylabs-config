@@ -52,7 +52,7 @@ public class Configuration implements Serializable {
     /**
      * The default name of the system property referencing to the location of the configuration file.
      */
-    private static final String DEFAULT_CONFIG_FILE_PATH_PROPERTY_NAME = "co.luminositylabs.configFile";
+    public static final String DEFAULT_CONFIG_FILE_PATH_PROPERTY_NAME = "co.luminositylabs.configFile";
 
     /**
      * The default name of the configuration file.
