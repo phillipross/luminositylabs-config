@@ -4,7 +4,7 @@ pipelines:
     default:
         - step:
             script:
-                - mvn -U -V -Psonatype-snapshots,sonatype-staging dependency:list-repositories
-                - mvn -U -V -Psonatype-snapshots,sonatype-staging dependency:tree
-                - mvn -U -V -Psonatype-snapshots,sonatype-staging clean
-                - mvn -U -V -Psonatype-snapshots,sonatype-staging install
+                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging dependency:list-repositories
+                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging dependency:tree
+                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging clean
+                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging install
