@@ -57,7 +57,7 @@
 
     <properties>
         <!-- Dependency versions -->
-        <dependency.arquillian.version>1.1.11.Final</dependency.arquillian.version>
+        <dependency.arquillian.version>1.1.12.Final</dependency.arquillian.version>
         <dependency.arquillian-glassfish-embedded-3.1.version>1.0.0.Final</dependency.arquillian-glassfish-embedded-3.1.version>
         <dependency.javaee.version>7.0</dependency.javaee.version>
         <dependency.payara-embedded-all.version>4.1.1.164</dependency.payara-embedded-all.version>
