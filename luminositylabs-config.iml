@@ -41,8 +41,8 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.testenricher:arquillian-testenricher-ejb:1.1.13.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.testenricher:arquillian-testenricher-resource:1.1.13.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.testenricher:arquillian-testenricher-initialcontext:1.1.13.Final" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: fish.payara.api:payara-api:4.1.2.172" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: fish.payara.extras:payara-embedded-all:4.1.2.172" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: fish.payara.api:payara-api:4.1.2.173" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: fish.payara.extras:payara-embedded-all:4.1.2.173.0.1" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:1.2.3" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-core:1.2.3" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
