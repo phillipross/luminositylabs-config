@@ -21,7 +21,7 @@
     <parent>
         <groupId>co.luminositylabs.oss</groupId>
         <artifactId>luminositylabs-oss-parent</artifactId>
-        <version>0.0.21</version>
+        <version>0.0.22</version>
     </parent>
 
     <artifactId>luminositylabs-config</artifactId>
