@@ -6,5 +6,8 @@ pipelines:
             script:
                 - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging dependency:list-repositories
                 - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging dependency:tree
-                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging clean
-                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging install
+                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging clean install
+                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging,jee7,-jee8,arquillian-embedded-glassfish-container,-arquillian-embedded-payara-container clean install
+                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging,-jee7,jee8,arquillian-embedded-glassfish-container,-arquillian-embedded-payara-container clean install
+                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging,jee7,-jee8,-arquillian-embedded-glassfish-container,arquillian-embedded-payara-container clean install
+                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging,-jee7,jee8,-arquillian-embedded-glassfish-container,arquillian-embedded-payara-container clean install
