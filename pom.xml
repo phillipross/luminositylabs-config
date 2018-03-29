@@ -21,11 +21,11 @@
     <parent>
         <groupId>co.luminositylabs.oss</groupId>
         <artifactId>luminositylabs-oss-parent</artifactId>
-        <version>0.0.25</version>
+        <version>0.0.26</version>
     </parent>
 
     <artifactId>luminositylabs-config</artifactId>
-    <version>0.0.24-SNAPSHOT</version>
+    <version>0.0.25-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>luminositylabs-config</name>
@@ -57,11 +57,8 @@
 
     <properties>
         <!-- Dependency versions -->
-        <dependency.arquillian.version>1.3.0.Final</dependency.arquillian.version>
-        <dependency.arquillian-glassfish-embedded-3.1.version>1.0.2</dependency.arquillian-glassfish-embedded-3.1.version>
-        <dependency.javaee.version>7.0</dependency.javaee.version>
-        <dependency.payara-api.version>4.1.2.181</dependency.payara-api.version>
-        <dependency.payara-embedded-all.version>4.1.2.181</dependency.payara-embedded-all.version>
+        <dependency.arquillian.version>1.4.0.Final</dependency.arquillian.version>
+        
     </properties>
 
     <dependencyManagement>
@@ -83,16 +80,9 @@
             <version>${dependency.javaee.version}</version>
             <scope>provided</scope>
         </dependency>
-
         <dependency>
             <groupId>org.jboss.arquillian.testng</groupId>
             <artifactId>arquillian-testng-container</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.arquillian.container</groupId>
-            <artifactId>arquillian-glassfish-embedded-3.1</artifactId>
-            <version>${dependency.arquillian-glassfish-embedded-3.1.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -144,5 +134,58 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>jee7</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <dependency.javaee.version>7.0</dependency.javaee.version>
+                <dependency.payara-api.version>4.1.2.181</dependency.payara-api.version>
+                <dependency.payara-embedded-all.version>4.1.2.181</dependency.payara-embedded-all.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>jee8</id>
+            <properties>
+                <dependency.javaee.version>8.0</dependency.javaee.version>
+                <dependency.payara-api.version>5.181</dependency.payara-api.version>
+                <dependency.payara-embedded-all.version>5.181</dependency.payara-embedded-all.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>arquillian-embedded-glassfish-container</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <dependency.arquillian-glassfish-embedded-3.1.version>1.0.2</dependency.arquillian-glassfish-embedded-3.1.version>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.jboss.arquillian.container</groupId>
+                    <artifactId>arquillian-glassfish-embedded-3.1</artifactId>
+                    <version>${dependency.arquillian-glassfish-embedded-3.1.version}</version>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>arquillian-embedded-payara-container</id>
+            <properties>
+                <dependency.arquillian-payara-server-4-embedded.version>1.0.Beta2</dependency.arquillian-payara-server-4-embedded.version>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>fish.payara.arquillian</groupId>
+                    <artifactId>arquillian-payara-server-4-embedded</artifactId>
+                    <version>${dependency.arquillian-payara-server-4-embedded.version}</version>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
 
 </project>
