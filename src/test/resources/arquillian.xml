@@ -5,7 +5,7 @@
         http://jboss.org/schema/arquillian
         http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
 
-    <container qualifier="glassfish-embedded" default="true">
+    <container qualifier="payara-embedded" default="true">
         <configuration>
             <property name="bindHttpPort">48765</property>
             <property name="bindHttpsPort">48766</property>
