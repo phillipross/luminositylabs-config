@@ -1,13 +1,23 @@
-image: luminositylabs/maven:3.5.3-zulu8u163-8.28.01
-
 pipelines:
     default:
         - step:
+            image: luminositylabs/maven:3.5.3-zulu8u163-8.28.01
             script:
                 - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging dependency:list-repositories
                 - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging dependency:tree
-                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging clean install
-                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging,jee7,-jee8,arquillian-embedded-glassfish-container,-arquillian-embedded-payara-container clean install
-                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging,-jee7,jee8,arquillian-embedded-glassfish-container,-arquillian-embedded-payara-container clean install
-                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging,jee7,-jee8,-arquillian-embedded-glassfish-container,arquillian-embedded-payara-container clean install
-                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging,-jee7,jee8,-arquillian-embedded-glassfish-container,arquillian-embedded-payara-container clean install
+                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging help:active-profiles clean install
+                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging,jee8 help:active-profiles clean install
+        - step:
+            image: luminositylabs/maven:3.5.3-zulu9u04-9.0.4.1
+            script:
+                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging dependency:list-repositories
+                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging dependency:tree
+                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging help:active-profiles clean install
+                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging,jee8 help:active-profiles clean install
+        - step:
+            image: luminositylabs/maven:3.5.3-zulu10-10.1_11
+            script:
+                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging dependency:list-repositories
+                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging dependency:tree
+                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging help:active-profiles clean install
+                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging,jee8 help:active-profiles clean install
