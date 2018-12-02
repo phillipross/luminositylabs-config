@@ -21,7 +21,7 @@
     <parent>
         <groupId>co.luminositylabs.oss</groupId>
         <artifactId>luminositylabs-oss-parent</artifactId>
-        <version>0.0.32</version>
+        <version>0.0.33</version>
     </parent>
 
     <artifactId>luminositylabs-config</artifactId>
@@ -158,8 +158,8 @@
             <id>jee8</id>
             <properties>
                 <dependency.javaee.version>8.0</dependency.javaee.version>
-                <dependency.payara-api.version>5.183</dependency.payara-api.version>
-                <dependency.payara-embedded-all.version>5.183</dependency.payara-embedded-all.version>
+                <dependency.payara-api.version>5.184</dependency.payara-api.version>
+                <dependency.payara-embedded-all.version>5.184</dependency.payara-embedded-all.version>
             </properties>
         </profile>
     </profiles>
