@@ -21,7 +21,7 @@
     <parent>
         <groupId>co.luminositylabs.oss</groupId>
         <artifactId>luminositylabs-oss-parent</artifactId>
-        <version>0.0.40</version>
+        <version>0.0.41</version>
     </parent>
 
     <artifactId>luminositylabs-config</artifactId>
@@ -59,6 +59,9 @@
         <!-- Dependency versions -->
         <dependency.arquillian.version>1.4.1.Final</dependency.arquillian.version>
         <dependency.arquillian-payara-server-embedded.version>1.1</dependency.arquillian-payara-server-embedded.version>
+        <dependency.javaee.version>8.0.1</dependency.javaee.version>
+        <dependency.payara-api.version>5.192</dependency.payara-api.version>
+        <dependency.payara-embedded-all.version>5.192</dependency.payara-embedded-all.version>
     </properties>
 
     <dependencyManagement>
@@ -144,23 +147,62 @@
 
     <profiles>
         <profile>
-            <id>jee7</id>
+            <id>java8</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <jdk>1.8</jdk>
             </activation>
             <properties>
-                <dependency.javaee.version>7.0</dependency.javaee.version>
-                <dependency.payara-api.version>4.1.2.181</dependency.payara-api.version>
-                <dependency.payara-embedded-all.version>4.1.2.181</dependency.payara-embedded-all.version>
+                <java.min.version>1.8</java.min.version>
             </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jar-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>java-classifier</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                                <configuration>
+                                    <classifier>java8</classifier>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
         <profile>
-            <id>jee8</id>
+            <id>java11</id>
+            <activation>
+                <jdk>11</jdk>
+            </activation>
             <properties>
-                <dependency.javaee.version>8.0.1</dependency.javaee.version>
-                <dependency.payara-api.version>5.192</dependency.payara-api.version>
-                <dependency.payara-embedded-all.version>5.192</dependency.payara-embedded-all.version>
+                <java.min.version>11</java.min.version>
             </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jar-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>java-classifier</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                                <configuration>
+                                    <classifier>java11</classifier>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
     </profiles>
 </project>
