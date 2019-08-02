@@ -6,6 +6,11 @@
         <ignoreVersion type="regex">.*-[M|alpha|beta].*</ignoreVersion>
     </ignoreVersions>
     <rules>
+        <rule groupId="javax" artifactId="javaee-api" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">8\.0\..*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="org.jboss.shrinkwrap.resolver" artifactId="shrinkwrap-resolver-*" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">3.*</ignoreVersion>

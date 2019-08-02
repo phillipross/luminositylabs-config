@@ -21,7 +21,7 @@
     <parent>
         <groupId>co.luminositylabs.oss</groupId>
         <artifactId>luminositylabs-oss-parent</artifactId>
-        <version>0.0.43</version>
+        <version>0.0.44</version>
     </parent>
 
     <artifactId>luminositylabs-config</artifactId>
@@ -59,7 +59,7 @@
         <!-- Dependency versions -->
         <dependency.arquillian.version>1.4.1.Final</dependency.arquillian.version>
         <dependency.arquillian-payara-server-embedded.version>1.1</dependency.arquillian-payara-server-embedded.version>
-        <dependency.javaee.version>8.0.1</dependency.javaee.version>
+        <dependency.javaee.version>8.0</dependency.javaee.version>
         <dependency.payara-api.version>5.192</dependency.payara-api.version>
         <dependency.payara-embedded-all.version>5.192</dependency.payara-embedded-all.version>
     </properties>
