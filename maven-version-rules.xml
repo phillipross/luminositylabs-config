@@ -11,9 +11,9 @@
                 <ignoreVersion type="regex">8\.0\..*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="org.jboss.shrinkwrap.resolver" artifactId="shrinkwrap-resolver-*" comparisonMethod="maven">
+        <rule groupId="org.testng" artifactId="testng" comparisonMethod="maven">
             <ignoreVersions>
-                <ignoreVersion type="regex">3.*</ignoreVersion>
+                <ignoreVersion type="regex">7\..*</ignoreVersion>
             </ignoreVersions>
         </rule>
     </rules>
