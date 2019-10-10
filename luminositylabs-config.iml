@@ -33,8 +33,8 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.testenricher:arquillian-testenricher-ejb:1.5.0.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.testenricher:arquillian-testenricher-resource:1.5.0.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.testenricher:arquillian-testenricher-initialcontext:1.5.0.Final" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: fish.payara.extras:payara-embedded-all:5.193" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: fish.payara.api:payara-api:5.193" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: fish.payara.extras:payara-embedded-all:5.193.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: fish.payara.api:payara-api:5.193.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.testng:arquillian-testng-container:1.5.0.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.testng:arquillian-testng-core:1.5.0.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.test:arquillian-test-api:1.5.0.Final" level="project" />

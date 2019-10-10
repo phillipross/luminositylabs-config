@@ -60,8 +60,8 @@
         <dependency.arquillian.version>1.5.0.Final</dependency.arquillian.version>
         <dependency.arquillian-payara-server-embedded.version>1.2</dependency.arquillian-payara-server-embedded.version>
         <dependency.javaee.version>8.0</dependency.javaee.version>
-        <dependency.payara-api.version>5.193</dependency.payara-api.version>
-        <dependency.payara-embedded-all.version>5.193</dependency.payara-embedded-all.version>
+        <dependency.payara-api.version>5.193.1</dependency.payara-api.version>
+        <dependency.payara-embedded-all.version>5.193.1</dependency.payara-embedded-all.version>
     </properties>
 
     <dependencyManagement>
