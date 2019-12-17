@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- Copyright (c) 2016 Luminosity Labs LLC. All rights reserved.
+ Copyright (c) 2019 Luminosity Labs LLC. All rights reserved.
 
  Licensed to the Apache Software Foundation (ASF) under one or more
  contributor license agreements.  See the NOTICE file distributed with this
@@ -21,7 +21,7 @@
     <parent>
         <groupId>co.luminositylabs.oss</groupId>
         <artifactId>luminositylabs-oss-parent</artifactId>
-        <version>0.0.47</version>
+        <version>0.0.49</version>
     </parent>
 
     <artifactId>luminositylabs-config</artifactId>
@@ -58,10 +58,7 @@
     <properties>
         <!-- Dependency versions -->
         <dependency.arquillian.version>1.5.0.Final</dependency.arquillian.version>
-        <dependency.arquillian-payara-server-embedded.version>1.2</dependency.arquillian-payara-server-embedded.version>
-        <dependency.javaee.version>8.0</dependency.javaee.version>
-        <dependency.payara-api.version>5.193.1</dependency.payara-api.version>
-        <dependency.payara-embedded-all.version>5.193.1</dependency.payara-embedded-all.version>
+        <dependency.payara.version>5.194</dependency.payara.version>
     </properties>
 
     <dependencyManagement>
@@ -73,33 +70,31 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
+            <dependency>
+                <groupId>fish.payara.api</groupId>
+                <artifactId>payara-bom</artifactId>
+                <version>${dependency.payara.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
         <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>${dependency.javaee.version}</version>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>fish.payara.arquillian</groupId>
             <artifactId>arquillian-payara-server-embedded</artifactId>
-            <version>${dependency.arquillian-payara-server-embedded.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>fish.payara.extras</groupId>
             <artifactId>payara-embedded-all</artifactId>
-            <version>${dependency.payara-embedded-all.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>fish.payara.api</groupId>
-            <artifactId>payara-api</artifactId>
-            <version>${dependency.payara-api.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
