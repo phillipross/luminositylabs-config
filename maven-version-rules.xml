@@ -67,6 +67,16 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="jakarta.ejb" artifactId="jakarta.ejb-api">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="jakarta.el" artifactId="jakarta.el-api">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="jakarta.faces" artifactId="jakarta.faces-api">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
@@ -147,6 +157,11 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="org.eclipse.microprofile.rest.client" artifactId="microprofile-rest-client-api">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="org.eclipse.persistence" artifactId="jakarta.persistence">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
@@ -187,6 +202,11 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="org.glassfish.jersey">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="org.glassfish.mq" artifactId="mq-distribution">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
@@ -212,9 +232,22 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="org.ow2.asm">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="org.yaml" artifactId="snakeyaml">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+
+        <!-- Pin shrinkwrap to v2.2.6 -->
+        <rule groupId="org.jboss.shrinkwrap" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">2\.2\.[7-9].*</ignoreVersion>
+                <ignoreVersion type="regex">[3-9].*</ignoreVersion>
             </ignoreVersions>
         </rule>
 
