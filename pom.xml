@@ -57,7 +57,7 @@
 
     <properties>
         <!-- Dependency versions -->
-        <dependency.arquillian.version>1.5.0.Final</dependency.arquillian.version>
+        <dependency.arquillian.version>1.6.0.Final</dependency.arquillian.version>
         <dependency.payara.version>5.194</dependency.payara.version>
     </properties>
 
