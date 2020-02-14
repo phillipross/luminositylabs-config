@@ -13,7 +13,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: jakarta.platform:jakarta.jakartaee-api:8.0.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: fish.payara.arquillian:arquillian-payara-server-embedded:2.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: fish.payara.arquillian:arquillian-payara-server-embedded:2.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.container:arquillian-container-spi:1.6.0.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.core:arquillian-core-spi:1.6.0.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.config:arquillian-config-api:1.6.0.Final" level="project" />

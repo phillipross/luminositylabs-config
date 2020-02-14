@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://mojo.codehaus.org/versions-maven-plugin/rule/2.0.0 http://mojo.codehaus.org/versions-maven-plugin/xsd/rule-2.0.0.xsd">
     <ignoreVersions>
-        <ignoreVersion type="regex">.*-[M|alpha|beta].*</ignoreVersion>
+        <ignoreVersion type="regex">.*-[M|RC|alpha|beta|rc].*</ignoreVersion>
     </ignoreVersions>
     <rules>
         <!-- Ignore all versions of all artifacts specified in the payara bom -->
@@ -32,12 +32,12 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="com.sun.istack" artifactId="istack-commons-runtime">
+        <rule groupId="com.sun.activation" artifactId="jakarta.activation">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="com.sun.activation" artifactId="jakarta.activation">
+        <rule groupId="com.sun.istack" artifactId="istack-commons-runtime">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -63,11 +63,6 @@
             </ignoreVersions>
         </rule>
         <rule groupId="jakarta.activation" artifactId="jakarta.activation-api">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="jakarta.ejb" artifactId="jakarta.ejb-api">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -252,6 +247,11 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="org.jsoup" artifactId="jsoup">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="org.osgi" artifactId="org.osgi.dto">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
@@ -268,11 +268,10 @@
             </ignoreVersions>
         </rule>
 
-        <!-- Pin shrinkwrap to v2.2.6 -->
-        <rule groupId="org.jboss.shrinkwrap" comparisonMethod="maven">
+        <!-- Ignore arquillian payara connector versions specified in the payara bom which have older versions -->
+        <rule groupId="fish.payara.arquillian" comparisonMethod="maven">
             <ignoreVersions>
-                <ignoreVersion type="regex">2\.2\.[7-9].*</ignoreVersion>
-                <ignoreVersion type="regex">[3-9].*</ignoreVersion>
+                <ignoreVersion type="regex">2.1</ignoreVersion>
             </ignoreVersions>
         </rule>
 
