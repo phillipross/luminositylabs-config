@@ -147,6 +147,11 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="org.eclipse.microprofile" artifactId="microprofile">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="org.eclipse.microprofile.config" artifactId="microprofile-config-api">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
@@ -271,7 +276,7 @@
         <!-- Ignore arquillian payara connector versions specified in the payara bom which have older versions -->
         <rule groupId="fish.payara.arquillian" comparisonMethod="maven">
             <ignoreVersions>
-                <ignoreVersion type="regex">2.1</ignoreVersion>
+                <ignoreVersion type="regex">2.[1-2]</ignoreVersion>
             </ignoreVersions>
         </rule>
 
