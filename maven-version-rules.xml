@@ -37,27 +37,7 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="com.sun.istack" artifactId="istack-commons-runtime">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="com.sun.messaging.mq" artifactId="imqjmx">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
         <rule groupId="io.opentracing" artifactId="opentracing-api">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="jakarta.annotation" artifactId="jakarta.annotation-api">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="jakarta.batch" artifactId="jakarta.batch-api">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -67,17 +47,7 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="jakarta.ejb" artifactId="jakarta.ejb-api">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
         <rule groupId="jakarta.el" artifactId="jakarta.el-api">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="jakarta.faces" artifactId="jakarta.faces-api">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -92,17 +62,12 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="jakarta.json" artifactId="jakarta.json-api">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
         <rule groupId="jakarta.json.bind" artifactId="jakarta.json.bind-api">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="jakarta.resource" artifactId="jakarta.resource-api">
+        <rule groupId="jakarta.jws" artifactId="jakarta.jws-api">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -112,27 +77,17 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="jakarta.transaction" artifactId="jakarta.transaction-api">
+        <rule groupId="jakarta.xml.bind" artifactId="jakarta.xml.bind-api">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="jakarta.ws.rs" artifactId="jakarta.ws.rs-api">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="javax.cache" artifactId="cache-api">
+        <rule groupId="jakarta.xml.ws" artifactId="jakarta.xml.ws-api">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
         <rule groupId="junit" artifactId="junit">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.apache.derby">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -187,32 +142,12 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="org.eclipse.persistence" artifactId="jakarta.persistence">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
         <rule groupId="org.eclipse.persistence">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="org.glassfish" artifactId="jakarta.faces">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.glassfish" artifactId="jakarta.json">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
         <rule groupId="org.glassfish" artifactId="javax.enterprise.concurrent">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.glassfish" artifactId="jsonp-jaxrs">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -237,32 +172,12 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="org.hibernate.validator" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
         <rule groupId="org.jboss.weld" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="org.jboss.weld" artifactId="weld-api">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
         <rule groupId="org.jsoup" artifactId="jsoup">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.osgi" artifactId="org.osgi.dto">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.ow2.asm">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
