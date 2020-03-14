@@ -37,6 +37,11 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="com.sun.mail" artifactId="jakarta.mail">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="io.opentracing" artifactId="opentracing-api">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
@@ -68,6 +73,11 @@
             </ignoreVersions>
         </rule>
         <rule groupId="jakarta.jws" artifactId="jakarta.jws-api">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="jakarta.mail" artifactId="jakarta.mail-api">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -168,6 +178,11 @@
             </ignoreVersions>
         </rule>
         <rule groupId="org.glassfish.mq" artifactId="mq-distribution">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="org.glassfish.tyrus">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
