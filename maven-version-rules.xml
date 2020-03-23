@@ -37,6 +37,11 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="com.sun.istack" artifactId="istack-commons-runtime">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="com.sun.mail" artifactId="jakarta.mail">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
