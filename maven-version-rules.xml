@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://mojo.codehaus.org/versions-maven-plugin/rule/2.0.0 http://mojo.codehaus.org/versions-maven-plugin/xsd/rule-2.0.0.xsd">
     <ignoreVersions>
-        <ignoreVersion type="regex">.*-[M|RC|alpha|beta|rc].*</ignoreVersion>
+        <ignoreVersion type="regex">.*[\.-](?i)([M|alpha|beta|rc]).*</ignoreVersion>
     </ignoreVersions>
     <rules>
         <!-- Ignore all versions of all artifacts specified in the payara bom -->
@@ -198,6 +198,11 @@
             </ignoreVersions>
         </rule>
         <rule groupId="org.jsoup" artifactId="jsoup">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="org.ow2.asm" artifactId="asm">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
