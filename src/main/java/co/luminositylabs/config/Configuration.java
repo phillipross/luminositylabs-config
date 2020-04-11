@@ -22,14 +22,15 @@ import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Properties;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -44,47 +45,31 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 @ApplicationScoped
 public class Configuration implements Serializable {
 
-    /**
-     * The static logger instance.
-     */
+    /** The static logger instance. */
     private static final Logger logger = LoggerFactory.getLogger(Configuration.class);
 
-    /**
-     * The default name of the system property referencing to the location of the configuration file.
-     */
+    /** The default name of the system property referencing to the location of the configuration file. */
     public static final String DEFAULT_CONFIG_FILE_PATH_PROPERTY_NAME = "co.luminositylabs.configFile";
 
-    /**
-     * The default name of the configuration file.
-     */
+    /** The default name of the configuration file. */
     private static final String DEFAULT_CONFIG_FILENAME = "co.luminositylabs.config.properties";
 
-    private static final long serialVersionUID = -2216420313823699897L;
+    private static final long serialVersionUID = 7848558640626834259L;
 
-    /**
-     * A lock which handles concurrent access to the properties.
-     */
+    /** A lock which handles concurrent access to the properties. */
     private final ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
 
-    /**
-     * The read lock used to handle concurrent access to the properties.
-     */
+    /** The read lock used to handle concurrent access to the properties. */
     private final Lock readLock = lock.readLock();
 
-    /**
-     * The write lock used to handle concurrent access to the properties.
-     */
+    /** The write lock used to handle concurrent access to the properties. */
     private final Lock writeLock = lock.writeLock();
 
-    /**
-     * Underlying storage object for the properties.
-     */
+    /** Underlying storage object for the properties. */
     private final Properties properties = new Properties();
 
 
-    /**
-     * Instantiates a new configuration object.
-     */
+    /** Instantiates a new configuration object. */
     public Configuration() {
     }
 
@@ -307,89 +292,59 @@ public class Configuration implements Serializable {
     public void readProperties() {
         writeLock.lock();
         try {
-            logger.debug(
-                    "default config file path property name: {}",
-                    DEFAULT_CONFIG_FILE_PATH_PROPERTY_NAME
-            );
+            logger.debug("default config file path property name: {}", DEFAULT_CONFIG_FILE_PATH_PROPERTY_NAME);
             properties.clear();
-            // Check the system properties to see if there is a property which specifies the full path of a config file.
-
-            logger.debug(
-                    "Searching system properties for a specified config file path ({})",
-                    DEFAULT_CONFIG_FILE_PATH_PROPERTY_NAME
-            );
-            String configFileFullPathName = System.getProperty(DEFAULT_CONFIG_FILE_PATH_PROPERTY_NAME);
-            if (configFileFullPathName != null) {
-                logger.debug(
-                        "Found system property ({}={})",
-                        DEFAULT_CONFIG_FILE_PATH_PROPERTY_NAME,
-                        configFileFullPathName
-                );
-            } else {
-                logger.debug(
-                        "Did not find system property ({})",
-                        DEFAULT_CONFIG_FILE_PATH_PROPERTY_NAME
-                );
-                // If the config file path was not specified as a system
-                // property, assume a default file name without a path.
-                logger.debug(
-                        "Assuming a default name for the config file without a path. ({})",
-                        DEFAULT_CONFIG_FILENAME
-                );
-                configFileFullPathName = DEFAULT_CONFIG_FILENAME;
-            }
-
-            logger.debug("Looking for {} in filesystem...", configFileFullPathName);
-            File configFileFullPath = new File(configFileFullPathName);
+            final String configFileName = configFileName();
+            logger.debug("Looking for {} in filesystem...", configFileName);
+            Path configFilePath = Paths.get(configFileName);
             // Check to see if this full path points to an existing location on the filesystem.
-            if (configFileFullPath.exists()) {
-                logger.debug("file exists in filesystem at {}", configFileFullPath);
-                try {
-                    FileReader fileReader = new FileReader(configFileFullPath);
-                    properties.load(fileReader);
+            if (Files.exists(configFilePath)) {
+                logger.debug("file exists in filesystem at {}", configFilePath);
+                try (InputStream inputStream = Files.newInputStream(configFilePath)) {
+                    properties.load(inputStream);
                 } catch (IOException ioe) {
                     logger.debug("Error occurred while trying to read properties from {} on filesystem.",
-                            configFileFullPathName,
+                            configFilePath,
                             ioe
                     );
                 }
             } else {
-                String homeDirectoryPath = System.getProperty("user.home");
-                if (homeDirectoryPath != null) {
+                String homeDirectoryPathName = System.getProperty("user.home");
+                if (homeDirectoryPathName != null) {
                     logger.debug("could not find file... checking home directory.");
-                    File configFileRelativeToHomeDirectory = new File(homeDirectoryPath, configFileFullPathName);
-
-                    InputStream inputStream = null;
-                    if (configFileRelativeToHomeDirectory.exists()) {
-                        logger.debug("Found config file in home directory ({})", configFileRelativeToHomeDirectory);
-                        try {
-                            inputStream = new FileInputStream(configFileRelativeToHomeDirectory);
+                    Path homeDirectoryPath = Paths.get(homeDirectoryPathName);
+                    Path configFilePathRelativeToHomeDirectory = homeDirectoryPath.resolve(configFilePath);
+                    if (Files.exists(configFilePathRelativeToHomeDirectory)) {
+                        logger.debug("Found config file in home directory ({})", configFilePathRelativeToHomeDirectory);
+                        try (InputStream inputStream = Files.newInputStream(configFilePathRelativeToHomeDirectory)) {
+                            readPropertiesFromInputStream(inputStream);
                         } catch (FileNotFoundException e) {
                             logger.debug("Did not find config file in home directory");
-                        }
-                    } else {
-                        logger.debug("Did not find config file in home directory");
-                        logger.debug("Looking for {} in classpath...", configFileFullPathName);
-                        // When the file does not exist at the specified path in the
-                        // filesystem... check to see if it exists relative to the classpath.
-                        inputStream = Thread.currentThread()
-                                .getContextClassLoader()
-                                .getResourceAsStream(configFileFullPathName);
-                        if (inputStream != null) {
-                            logger.debug("file exists in classpath at {}", configFileFullPath);
-                        } else {
-                            logger.debug("Did not find file ({}) in classpath", configFileFullPathName);
-                        }
-                    }
-                    if (inputStream != null) {
-                        try {
-                            logger.debug("Reading properties from input stream.");
-                            properties.load(inputStream);
-                            logger.debug("Read properties from input stream: {}", properties);
                         } catch (IOException ioe) {
                             logger.debug(
                                     "Error occurred while trying to read properties from {}.",
-                                    configFileFullPathName,
+                                    configFilePathRelativeToHomeDirectory,
+                                    ioe
+                            );
+                        }
+                    } else {
+                        logger.debug("Did not find config file in home directory");
+                        logger.debug("Looking for {} in classpath...", configFilePath);
+                        // When the file does not exist at the specified path in the
+                        // filesystem... check to see if it exists relative to the classpath.
+                        try (InputStream inputStream = Thread.currentThread()
+                                .getContextClassLoader()
+                                .getResourceAsStream(configFileName)) {
+                            if (inputStream != null) {
+                                logger.debug("file exists in classpath at {}", configFilePath);
+                                readPropertiesFromInputStream(inputStream);
+                            } else {
+                                logger.debug("Did not find file ({}) in classpath", configFilePath);
+                            }
+                        } catch (IOException ioe) {
+                            logger.debug(
+                                    "Error occurred while trying to read properties from {}.",
+                                    configFileName,
                                     ioe
                             );
                         }
@@ -401,6 +356,55 @@ public class Configuration implements Serializable {
         } finally {
             writeLock.unlock();
         }
+    }
+
+
+    /**
+     * Get the name of the config file.
+     *
+     * The config file name is determined by first searching for a system property specified by the
+     * DEFAULT_CONFIG_FILE_PATH_PROPERTY_NAME constant.  When the system property with that name exists, the value of
+     * that system property is returned as the full path name of the config file.  When the system property with that
+     * name does not exist, then a default config file name specified by the DEFAULT_CONFIG_FILE_PATH_PROPERTY_NAME
+     * constant is returned.  This default config file name only specifies the file name and NOT the full path.
+     *
+     * @return the name of the config file.
+     */
+    private String configFileName() {
+        // Check the system properties to see if there is a property which specifies the full path of a config file.
+        logger.debug(
+                "Searching system properties for a specified config file path ({})",
+                DEFAULT_CONFIG_FILE_PATH_PROPERTY_NAME
+        );
+        String configFileName = System.getProperty(DEFAULT_CONFIG_FILE_PATH_PROPERTY_NAME);
+        if (configFileName != null) {
+            logger.debug(
+                    "Found system property ({}={})", DEFAULT_CONFIG_FILE_PATH_PROPERTY_NAME, configFileName
+            );
+        } else {
+            logger.debug("Did not find system property ({})", DEFAULT_CONFIG_FILE_PATH_PROPERTY_NAME);
+            // If the config file path was not specified as a system property,
+            // assume a default file name without a path.
+            logger.debug(
+                    "Assuming a default name for the config file without a path. ({})", DEFAULT_CONFIG_FILENAME
+            );
+            configFileName = DEFAULT_CONFIG_FILENAME;
+        }
+        return configFileName;
+    }
+
+
+    /**
+     * Reads properties from the specified input stream.
+     *
+     * @param inputStream the input stream to be read
+     * @throws IOException when an I/O exception occurrs
+     */
+    private void readPropertiesFromInputStream(final InputStream inputStream) throws IOException {
+        Objects.requireNonNull(inputStream, "Unable to read properties from null input stream");
+        logger.debug("Reading properties from input stream.");
+        properties.load(inputStream);
+        logger.debug("Read properties from input stream: {}", properties);
     }
 
 

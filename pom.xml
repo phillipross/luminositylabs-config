@@ -56,7 +56,6 @@
     </scm>
 
     <properties>
-        <spotbugs.skip>true</spotbugs.skip>
         <!-- Dependency versions -->
         <dependency.arquillian.version>1.6.0.Final</dependency.arquillian.version>
         <dependency.arquillian.payara.version>2.2</dependency.arquillian.payara.version>
