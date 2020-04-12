@@ -56,6 +56,9 @@
     </scm>
 
     <properties>
+        <failsafe.forkCount>1</failsafe.forkCount>                          <!-- Remove this when jacoco-maven-plugin is added to parent project -->
+        <failsafe.useSystemClassLoader>true</failsafe.useSystemClassLoader> <!-- Remove this when jacoco-maven-plugin is added to parent project -->
+        <maven.integration.test.skip>false</maven.integration.test.skip>    <!-- Remove this when jacoco-maven-plugin is added to parent project -->
         <!-- Dependency versions -->
         <dependency.arquillian.version>1.6.0.Final</dependency.arquillian.version>
         <dependency.arquillian.payara.version>2.2</dependency.arquillian.payara.version>
@@ -110,6 +113,29 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>integration-tests</id>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                        <configuration>
+                            <skip>${maven.integration.test.skip}</skip>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>${project.build.testOutputDirectory}/testng-it.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                            <systemPropertyVariables>
+                                <java.util.logging.config.file>${project.build.testOutputDirectory}/logging.properties</java.util.logging.config.file>
+                            </systemPropertyVariables>
+                            <useSystemClassLoader>${failsafe.useSystemClassLoader}</useSystemClassLoader>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <configuration>
                     <source>${java.min.version}</source>
@@ -119,19 +145,21 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
-                    <argLine>-Djava.awt.headless=true</argLine><!-- prevent the annoying ForkedBooter process from stealing window focus on Mac OS -->
-                    <skip>${maven.test.skip}</skip>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
-                    </suiteXmlFiles>
-                    <systemPropertyVariables>
-                        <derby.stream.error.file>
-                            ${project.build.directory}/derby.log
-                        </derby.stream.error.file>
-                        <java.util.logging.config.file>${project.build.testOutputDirectory}/logging.properties</java.util.logging.config.file>
-                    </systemPropertyVariables>
-                    <useSystemClassLoader>${surefire.useSystemClassLoader}</useSystemClassLoader>
+                    <skip>${maven.test.skip}</skip> <!-- There are no unit tests at the moment -->
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco-maven-plugin.version}</version> <!-- Remove this when jacoco-maven-plugin is added to parent project -->
+                <executions>
+                    <execution>
+                        <id>pre-integration-test</id>
+                        <goals>
+                            <goal>prepare-agent-integration</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
@@ -177,6 +205,18 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>${maven-pmd-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <reportSets>
+                    <reportSet>
+                        <id>test-coverage-report</id>
+                        <reports>
+                            <report>report-integration</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
             </plugin>
         </plugins>
     </reporting>
