@@ -21,7 +21,7 @@
     <parent>
         <groupId>co.luminositylabs.oss</groupId>
         <artifactId>luminositylabs-oss-parent</artifactId>
-        <version>0.1.1</version>
+        <version>0.1.2-SNAPSHOT</version>
     </parent>
 
     <artifactId>luminositylabs-config</artifactId>
@@ -56,9 +56,6 @@
     </scm>
 
     <properties>
-        <failsafe.forkCount>1</failsafe.forkCount>                          <!-- Remove this when jacoco-maven-plugin is added to parent project -->
-        <failsafe.useSystemClassLoader>true</failsafe.useSystemClassLoader> <!-- Remove this when jacoco-maven-plugin is added to parent project -->
-        <maven.integration.test.skip>false</maven.integration.test.skip>    <!-- Remove this when jacoco-maven-plugin is added to parent project -->
         <!-- Dependency versions -->
         <dependency.arquillian.version>1.6.0.Final</dependency.arquillian.version>
         <dependency.arquillian.payara.version>2.2</dependency.arquillian.payara.version>
@@ -122,36 +119,26 @@
                             <goal>verify</goal>
                         </goals>
                         <configuration>
-                            <skip>${maven.integration.test.skip}</skip>
                             <suiteXmlFiles>
                                 <suiteXmlFile>${project.build.testOutputDirectory}/testng-it.xml</suiteXmlFile>
                             </suiteXmlFiles>
                             <systemPropertyVariables>
                                 <java.util.logging.config.file>${project.build.testOutputDirectory}/logging.properties</java.util.logging.config.file>
                             </systemPropertyVariables>
-                            <useSystemClassLoader>${failsafe.useSystemClassLoader}</useSystemClassLoader>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <configuration>
-                    <source>${java.min.version}</source>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
-                    <skip>${maven.test.skip}</skip> <!-- There are no unit tests at the moment -->
+                    <skip>true</skip> <!-- There are no unit tests at the moment -->
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>${jacoco-maven-plugin.version}</version> <!-- Remove this when jacoco-maven-plugin is added to parent project -->
                 <executions>
                     <execution>
                         <id>pre-integration-test</id>
