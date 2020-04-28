@@ -47,6 +47,11 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="com.sun.xml.bind" artifactId="jaxb-osgi">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="io.opentracing" artifactId="opentracing-api">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
@@ -162,6 +167,11 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="org.fusesource.jansi" artifactId="jansi">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="org.glassfish" artifactId="javax.enterprise.concurrent">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
@@ -257,6 +267,16 @@
             </ignoreVersions>
         </rule>
         <rule groupId="org.apache.maven.plugin-tools" artifactId="maven-plugin-annotations" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="org.apache.maven.resolver" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="org.apache.maven.wagon" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
