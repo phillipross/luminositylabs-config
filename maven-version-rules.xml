@@ -192,6 +192,11 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="org.glassfish.metro">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="org.glassfish.mq" artifactId="mq-distribution">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
