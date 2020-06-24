@@ -233,13 +233,6 @@
             </ignoreVersions>
         </rule>
 
-        <!-- Ignore arquillian payara connector versions specified in the payara bom which have older versions -->
-        <rule groupId="fish.payara.arquillian" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">2.[1-3]</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-
         <!-- Pin testng version to pre-V7 -->
         <rule groupId="org.testng" artifactId="testng" comparisonMethod="maven">
             <ignoreVersions>
