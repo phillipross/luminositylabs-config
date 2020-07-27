@@ -13,7 +13,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: jakarta.platform:jakarta.jakartaee-api:8.0.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: fish.payara.arquillian:arquillian-payara-server-embedded:2.3" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: fish.payara.arquillian:arquillian-payara-server-embedded:2.3.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.container:arquillian-container-spi:1.6.0.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.core:arquillian-core-spi:1.6.0.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.config:arquillian-config-api:1.6.0.Final" level="project" />
@@ -28,7 +28,7 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.testenricher:arquillian-testenricher-ejb:1.6.0.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.testenricher:arquillian-testenricher-resource:1.6.0.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.testenricher:arquillian-testenricher-initialcontext:1.6.0.Final" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: fish.payara.extras:payara-embedded-all:5.2020.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: fish.payara.extras:payara-embedded-all:5.2020.3" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.testng:arquillian-testng-container:1.6.0.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.testng:arquillian-testng-core:1.6.0.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.test:arquillian-test-api:1.6.0.Final" level="project" />
