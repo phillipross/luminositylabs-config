@@ -304,5 +304,13 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+
+        <!-- Ignore versions of maven shared utils since some plugins user an older version and it's never
+             explicitly defined as a dependency in this project. -->
+        <rule groupId="org.apache.maven.shared" comparisonMethod="maven-shared-utils">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
     </rules>
 </ruleset>
