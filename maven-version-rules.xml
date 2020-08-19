@@ -57,6 +57,11 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="io.opentracing" artifactId="opentracing-util">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="jakarta.activation" artifactId="jakarta.activation-api">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
