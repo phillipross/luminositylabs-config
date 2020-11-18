@@ -67,6 +67,11 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="jakarta.annotation" artifactId="jakarta.annotation-api">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="jakarta.batch" artifactId="jakarta.batch-api">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
@@ -97,6 +102,11 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="jakarta.json.bind" artifactId="jakarta.json.bind-api">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="jakarta.jws" artifactId="jakarta.jws-api">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
@@ -107,7 +117,27 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="jakarta.security.enterprise" artifactId="jakarta.security.enterprise-api">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="jakarta.servlet" artifactId="jakarta.servlet-api">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="jakarta.servlet.jsp" artifactId="jakarta.servlet.jsp-api">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="jakarta.transaction" artifactId="jakarta.transaction-api">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="jakarta.ws.rs" artifactId="jakarta.ws.rs-api">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -153,6 +183,11 @@
             </ignoreVersions>
         </rule>
         <rule groupId="org.glassfish" artifactId="jakarta.el">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="org.glassfish" artifactId="jakarta.faces">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
