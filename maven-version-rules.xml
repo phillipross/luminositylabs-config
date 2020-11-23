@@ -82,12 +82,22 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="jakarta.enterprise.concurrent" artifactId="jakarta.enterprise.concurrent-api">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="jakarta.faces" artifactId="jakarta.faces-api">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
         <rule groupId="jakarta.inject" artifactId="jakarta.inject-api">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="jakarta.interceptor" artifactId="jakarta.interceptor-api">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -117,6 +127,26 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="jakarta.platform" artifactId="jakarta.jakartaee-api">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="jakarta.platform" artifactId="jakarta.jakartaee-bom">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="jakarta.platform" artifactId="jakarta.jakartaee-web-api">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="jakarta.resource" artifactId="jakarta.resource-api">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="jakarta.security.enterprise" artifactId="jakarta.security.enterprise-api">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
@@ -128,6 +158,11 @@
             </ignoreVersions>
         </rule>
         <rule groupId="jakarta.servlet.jsp" artifactId="jakarta.servlet.jsp-api">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="jakarta.servlet.jsp.jstl" artifactId="jakarta.servlet.jsp.jstl-api">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -162,7 +197,17 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="org.eclipse.microprofile.config" artifactId="microprofile-config-api">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="org.eclipse.microprofile.fault-tolerance" artifactId="microprofile-fault-tolerance-api">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="org.eclipse.microprofile.health" artifactId="microprofile-health-api">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
