@@ -172,6 +172,11 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="jakarta.websocket" artifactId="jakarta.websocket-api">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="jakarta.ws.rs" artifactId="jakarta.ws.rs-api">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
