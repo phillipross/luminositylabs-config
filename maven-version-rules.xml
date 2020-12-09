@@ -7,6 +7,11 @@
     </ignoreVersions>
     <rules>
         <!-- Ignore all versions of all artifacts specified in the payara bom -->
+        <rule groupId="com.ibm.jbatch">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="com.fasterxml.jackson.*">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
@@ -73,6 +78,11 @@
             </ignoreVersions>
         </rule>
         <rule groupId="jakarta.batch" artifactId="jakarta.batch-api">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="jakarta.ejb" artifactId="jakarta.ejb-api">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -227,6 +237,11 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="org.eclipse.persistence" artifactId="org.eclipse.persistence.*">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="org.fusesource.jansi" artifactId="jansi">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
@@ -257,7 +272,12 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="org.glassfish.hk2" artifactId="osgi-resource-locator">
+        <rule groupId="org.glassfish.grizzly">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="org.glassfish.hk2">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -277,6 +297,11 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="org.glassfish.tyrus">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="org.hibernate.validator" artifactId="hibernate-validator">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
@@ -288,6 +313,11 @@
             </ignoreVersions>
         </rule>
         <rule groupId="org.jsoup" artifactId="jsoup">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="org.osgi" artifactId="org.osgi.dto">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
