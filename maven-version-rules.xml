@@ -212,27 +212,7 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="org.eclipse.microprofile.config" artifactId="microprofile-config-api">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.eclipse.microprofile.fault-tolerance" artifactId="microprofile-fault-tolerance-api">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.eclipse.microprofile.health" artifactId="microprofile-health-api">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.eclipse.microprofile.metrics" artifactId="microprofile-metrics-api">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.eclipse.microprofile.opentracing" artifactId="microprofile-opentracing-api">
+        <rule groupId="org.eclipse.microprofile" artifactId="microprofile">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
