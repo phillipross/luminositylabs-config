@@ -21,7 +21,7 @@
     <parent>
         <groupId>co.luminositylabs.oss</groupId>
         <artifactId>luminositylabs-oss-parent</artifactId>
-        <version>0.1.23</version>
+        <version>0.1.24-SNAPSHOT</version>
     </parent>
 
     <artifactId>luminositylabs-config</artifactId>
@@ -64,6 +64,8 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- The arquillian-bom dependency imports slf4j-api and slfj-simple which may be defined with older
+                 versions and require overriding to get the latest versions. -->
             <dependency>
                 <groupId>org.jboss.arquillian</groupId>
                 <artifactId>arquillian-bom</artifactId>
@@ -71,6 +73,8 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
+            <!-- The payara-bom dependency imports fish.payara.arquillian artifacts which may be defined with older
+                 versions and require overriding to get the latest versions. -->
             <dependency>
                 <groupId>fish.payara.api</groupId>
                 <artifactId>payara-bom</artifactId>
@@ -78,6 +82,9 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
+            <!-- The payara-bom artifact may declare transitive dependencies for artifacts in the fish.payara.arquillian
+                 artifact group with versions that are not the latest.  Declare the individual artifacts explicitly to
+                 prevent the versions plugin from reporting the artifacts not being the latest versions -->
             <dependency>
                 <groupId>fish.payara.arquillian</groupId>
                 <artifactId>arquillian-payara-micro-managed</artifactId>
@@ -140,7 +147,6 @@
         <dependency>
             <groupId>fish.payara.arquillian</groupId>
             <artifactId>arquillian-payara-server-embedded</artifactId>
-            <!--<version>${dependency.arquillian-payara-containers.version}</version>-->
             <scope>test</scope>
         </dependency>
         <dependency>
