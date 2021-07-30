@@ -21,7 +21,7 @@
     <parent>
         <groupId>co.luminositylabs.oss</groupId>
         <artifactId>luminositylabs-oss-parent</artifactId>
-        <version>0.2.0</version>
+        <version>0.2.1</version>
     </parent>
 
     <artifactId>luminositylabs-config</artifactId>
@@ -30,7 +30,7 @@
 
     <name>luminositylabs-config</name>
     <description>A configuration framework.</description>
-    <url>http://bitbucket.com/luminositylabs/luminositylabs-config</url>
+    <url>https://github.com/luminositylabs/luminositylabs-config</url>
 
     <licenses>
         <license>
@@ -45,21 +45,21 @@
             <name>Luminosity Labs Team</name>
             <email>luminositylabs@gmail.com</email>
             <organization>Luminosity Labs LLC</organization>
-            <organizationUrl>http://bitbucket.com/luminositylabs</organizationUrl>
+            <organizationUrl>https://github.com/luminositylabs</organizationUrl>
         </developer>
     </developers>
 
     <scm>
-        <url>http://bitbucket.com/luminositylabs/luminositylabs-config</url>
-        <connection>scm:git:https://bitbucket.org/luminositylabs/luminositylabs-config.git</connection>
+        <url>https://github.com/luminositylabs/luminositylabs-config</url>
+        <connection>scm:git:https://github.com/luminositylabs/luminositylabs-config.git</connection>
         <tag>HEAD</tag>
     </scm>
 
     <properties>
         <!-- Dependency versions -->
         <dependency.arquillian.version>1.6.0.Final</dependency.arquillian.version>
-        <dependency.arquillian-payara-containers.version>2.4.3</dependency.arquillian-payara-containers.version>
-        <dependency.payara.version>5.2021.4</dependency.payara.version>
+        <dependency.arquillian-payara-containers.version>2.4.4</dependency.arquillian-payara-containers.version>
+        <dependency.payara.version>5.2021.5</dependency.payara.version>
     </properties>
 
     <dependencyManagement>
