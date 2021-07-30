@@ -25,7 +25,7 @@
     </parent>
 
     <artifactId>luminositylabs-config</artifactId>
-    <version>0.0.70-SNAPSHOT</version>
+    <version>0.0.70</version>
     <packaging>jar</packaging>
 
     <name>luminositylabs-config</name>
@@ -52,7 +52,7 @@
     <scm>
         <url>https://github.com/luminositylabs/luminositylabs-config</url>
         <connection>scm:git:https://github.com/luminositylabs/luminositylabs-config.git</connection>
-        <tag>HEAD</tag>
+        <tag>luminositylabs-config-0.0.70</tag>
     </scm>
 
     <properties>
