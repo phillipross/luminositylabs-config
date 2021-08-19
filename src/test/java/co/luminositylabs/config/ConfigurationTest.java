@@ -22,13 +22,17 @@ import org.jboss.arquillian.testng.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.jboss.shrinkwrap.resolver.api.maven.Maven;
+import org.jboss.shrinkwrap.resolver.api.maven.PomEquippedResolveStage;
+import org.jboss.shrinkwrap.resolver.api.maven.ScopeType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import javax.inject.Inject;
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -44,8 +48,21 @@ public class ConfigurationTest extends Arquillian {
 
     @Deployment
     public static Archive<?> createDeployment() {
-        JavaArchive jar = ShrinkWrap.create(JavaArchive.class)
+        PomEquippedResolveStage resolver = Maven.resolver()
+                .loadPomFromFile("pom.xml");
+        File[] lb = resolver.importDependencies(ScopeType.COMPILE)
+                .resolve("ch.qos.logback:logback-classic")
+                .withTransitivity()
+                .asFile();
+        File[] tng = resolver.importDependencies(ScopeType.COMPILE)
+                .resolve("org.testng:testng")
+                .withTransitivity()
+                .asFile();
+        WebArchive jar = ShrinkWrap.create(WebArchive.class, "deployment.war")
+                .addAsLibraries(lb)
+                .addAsLibraries(tng)
                 .addPackage(Configuration.class.getPackage())
+                .addAsResource("co.luminositylabs.config.properties")
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
         logger.debug("deployable jar content: {}", jar.toString(true));
         return jar;

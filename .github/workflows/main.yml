@@ -69,6 +69,9 @@ jobs:
     - name: Maven build/test
       run: mvn -U -V -s ${{ env.SETTINGS }} -P${{ env.PROFILES }} ${{ env.MAVEN_PROPS }} clean install
 
+    - name: Maven verify with payara embedded profile
+      run: mvn -U -V -s ${{ env.SETTINGS }} -P${{ env.PROFILES }},payara-server-embedded ${{ env.MAVEN_PROPS }} verify
+
     - name: Maven generate site
       run: mvn -U -V -s ${{ env.SETTINGS }} -P${{ env.PROFILES }} ${{ env.MAVEN_PROPS }} site site:stage
 

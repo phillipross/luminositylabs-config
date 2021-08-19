@@ -14,6 +14,6 @@
     <logger name="org.jboss.logging" level="ERROR"/>
     <logger name="org.jboss.weld" level="ERROR"/>
 
-    <logger name="co.luminositylabs.config" level="ERROR"/>
+    <logger name="co.luminositylabs.config" level="DEBUG"/>
 
 </configuration>
