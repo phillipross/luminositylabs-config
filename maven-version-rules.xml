@@ -317,6 +317,16 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="org.osgi" artifactId="osgi.annotation" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="org.osgi" artifactId="osgi.core" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
 
         <!-- Pin testng version to pre-V7 -->
         <rule groupId="org.testng" artifactId="testng" comparisonMethod="maven">
@@ -329,7 +339,7 @@
              referenced from arquillian-bom v1.6.0.Final -->
         <rule groupId="ch.qos.logback" artifactId="logback-classic" comparisonMethod="maven">
             <ignoreVersions>
-                <ignoreVersion type="regex">1\.2\.[2-6]</ignoreVersion>
+                <ignoreVersion type="regex">1\.2\.[2-7]</ignoreVersion>
                 <ignoreVersion type="regex">.*-groovyless</ignoreVersion>
             </ignoreVersions>
         </rule>
