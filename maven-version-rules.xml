@@ -339,7 +339,7 @@
              referenced from arquillian-bom v1.6.0.Final -->
         <rule groupId="ch.qos.logback" artifactId="logback-classic" comparisonMethod="maven">
             <ignoreVersions>
-                <ignoreVersion type="regex">1\.2\.[2-8]</ignoreVersion>
+                <ignoreVersion type="regex">1\.2\.[2-9]</ignoreVersion>
                 <ignoreVersion type="regex">.*-groovyless</ignoreVersion>
             </ignoreVersions>
         </rule>
