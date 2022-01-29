@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- Copyright (c) 2016-2021 Luminosity Labs LLC. All rights reserved.
+ Copyright (c) 2016-2022 Luminosity Labs LLC. All rights reserved.
 
  Licensed to the Apache Software Foundation (ASF) under one or more
  contributor license agreements.  See the NOTICE file distributed with this
@@ -21,7 +21,7 @@
     <parent>
         <groupId>co.luminositylabs.oss</groupId>
         <artifactId>luminositylabs-oss-parent</artifactId>
-        <version>0.2.3-SNAPSHOT</version>
+        <version>0.2.4</version>
     </parent>
 
     <artifactId>luminositylabs-config</artifactId>
@@ -58,8 +58,9 @@
     <properties>
         <!-- Dependency versions -->
         <dependency.arquillian.version>1.6.0.Final</dependency.arquillian.version>
-        <dependency.arquillian-payara-containers.version>2.4.5</dependency.arquillian-payara-containers.version>
+        <dependency.arquillian-payara-containers.version>2.4.6</dependency.arquillian-payara-containers.version>
         <dependency.payara.version>5.2021.10</dependency.payara.version>
+        <dependency.payara.security-connectors-api.version>2.3.0</dependency.payara.security-connectors-api.version>
     </properties>
 
     <dependencyManagement>
@@ -133,6 +134,17 @@
                 <artifactId>payara-micro-remote</artifactId>
                 <version>${dependency.arquillian-payara-containers.version}</version>
                 <scope>test</scope>
+            </dependency>
+            <!-- The Payara security connectors are not separately versioned. -->
+            <dependency>
+                <groupId>fish.payara.security.connectors</groupId>
+                <artifactId>openid-standalone</artifactId>
+                <version>${dependency.payara.security-connectors-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>fish.payara.security.connectors</groupId>
+                <artifactId>security-connectors-api</artifactId>
+                <version>${dependency.payara.security-connectors-api.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
