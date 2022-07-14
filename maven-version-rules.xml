@@ -333,6 +333,13 @@
             </ignoreVersions>
         </rule>
 
+        <!-- Pin checkstyle version to pre-V10 -->
+        <rule groupId="com.puppycrawl.tools" artifactId="checkstyle" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">10\..*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+
         <!-- Pin testng version to pre-V7 -->
         <rule groupId="org.testng" artifactId="testng" comparisonMethod="maven">
             <ignoreVersions>
@@ -344,7 +351,7 @@
              referenced from arquillian-bom v1.6.0.Final -->
         <rule groupId="ch.qos.logback" artifactId="logback-classic" comparisonMethod="maven">
             <ignoreVersions>
-                <ignoreVersion type="regex">1\.2\.10</ignoreVersion>
+                <ignoreVersion type="regex">1\.2\.1[0-1]</ignoreVersion>
                 <ignoreVersion type="regex">1\.2\.[0-9]</ignoreVersion>
                 <ignoreVersion type="regex">.*-groovyless</ignoreVersion>
             </ignoreVersions>
