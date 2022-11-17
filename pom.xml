@@ -59,8 +59,8 @@
         <!-- Dependency versions -->
         <dependency.arquillian.version>1.6.0.Final</dependency.arquillian.version>
         <dependency.arquillian-payara-containers.version>2.4.6</dependency.arquillian-payara-containers.version>
-        <dependency.payara.version>5.2022.2</dependency.payara.version>
-        <dependency.payara.security-connectors-api.version>2.3.0</dependency.payara.security-connectors-api.version>
+        <dependency.payara.version>5.2022.4</dependency.payara.version>
+        <dependency.payara.security-connectors-api.version>2.4.0</dependency.payara.security-connectors-api.version>
     </properties>
 
     <dependencyManagement>

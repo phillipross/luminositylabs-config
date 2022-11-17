@@ -6,6 +6,13 @@
         <ignoreVersion type="regex">.*[\.-](?i)([M|alpha|beta|rc]).*</ignoreVersion>
     </ignoreVersions>
     <rules>
+        <!-- Pin payara version to pre-v6 -->
+        <rule groupId="fish.payara.api" artifactId="payara-bom" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">6\..*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+
         <!-- Ignore all versions of all artifacts specified in the payara bom -->
         <rule groupId="com.ibm.jbatch" comparisonMethod="maven">
             <ignoreVersions>
@@ -487,7 +494,7 @@
             </ignoreVersions>
         </rule>
 
-        <!-- Ignore other dependencies with newer versions that are not explicity defined
+        <!-- Ignore other dependencies with newer versions that are not explicitly defined
              as a dependency in this project. -->
         <rule groupId="commons-cli" artifactId="commons-cli" comparisonMethod="maven">
             <ignoreVersions>
