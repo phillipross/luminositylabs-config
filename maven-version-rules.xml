@@ -7,7 +7,22 @@
     </ignoreVersions>
     <rules>
         <!-- Pin payara version to pre-v6 -->
-        <rule groupId="fish.payara.api" artifactId="payara-bom" comparisonMethod="maven">
+        <rule groupId="fish.payara.api" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">6\..*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="fish.payara.distributions" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">6\..*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="fish.payara.extras" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">6\..*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="fish.payara.server.appclient" artifactId="payara-client" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">6\..*</ignoreVersion>
             </ignoreVersions>
@@ -354,15 +369,19 @@
             </ignoreVersions>
         </rule>
 
-        <!-- Ignore various older versions of artifacts that are apparently
-             referenced from arquillian-bom v1.6.0.Final -->
-        <rule groupId="ch.qos.logback" artifactId="logback-classic" comparisonMethod="maven">
+        <!-- Pin/ignore logback versions -->
+        <rule groupId="ch.qos.logback" comparisonMethod="maven">
             <ignoreVersions>
-                <ignoreVersion type="regex">1\.2\.1[0-1]</ignoreVersion>
-                <ignoreVersion type="regex">1\.2\.[0-9]</ignoreVersion>
-                <ignoreVersion type="regex">.*-groovyless</ignoreVersion>
+                <!-- Pin logback version to pre-V1.4 -->
+                <ignoreVersion type="regex">1\.4\..*</ignoreVersion>
+
+                <!-- Ignore various older versions of artifacts that are apparently
+                     referenced from arquillian-bom v1.6.0.Final -->
+                <ignoreVersion type="regex">1\.3\.[0-5]</ignoreVersion>
+                <ignoreVersion type="regex">1\.2\..*</ignoreVersion>
             </ignoreVersions>
         </rule>
+
         <!-- Ignore all versions of dependencies that are not explicitly defined in this project,
               but are apparently imported from arquillian-bom v1.6.0.Final -->
         <rule groupId="com.google.inject" artifactId="guice" comparisonMethod="maven">
