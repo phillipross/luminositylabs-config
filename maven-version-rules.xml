@@ -7,26 +7,6 @@
     </ignoreVersions>
     <rules>
         <!-- Ignore all versions of all artifacts specified in the payara bom -->
-        <rule groupId="org.apache.santuario" artifactId="xmlsec" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.glassfish.soteria" artifactId="jakarta.security.enterprise" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.glassfish.soteria" artifactId="soteria.spi.bean.decorator.weld" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.glassfish.web" artifactId="jakarta.servlet.jsp.jstl" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
         <rule groupId="com.fasterxml.jackson.*" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
@@ -48,6 +28,11 @@
             </ignoreVersions>
         </rule>
         <rule groupId="com.sun.istack" artifactId="istack-commons-runtime" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="com.sun.xml.bind" artifactId="jaxb-osgi" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -112,6 +97,11 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="org.apache.santuario" artifactId="xmlsec" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="org.eclipse.angus" artifactId="angus-activation" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
@@ -152,7 +142,27 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="org.glassfish.metro" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="org.glassfish.soteria" artifactId="jakarta.security.enterprise" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="org.glassfish.soteria" artifactId="soteria.spi.bean.decorator.weld" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="org.glassfish.tyrus" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="org.glassfish.web" artifactId="jakarta.servlet.jsp.jstl" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
