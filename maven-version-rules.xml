@@ -147,6 +147,11 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="org.glassfish.mq" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="org.glassfish.soteria" artifactId="jakarta.security.enterprise" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
@@ -158,6 +163,11 @@
             </ignoreVersions>
         </rule>
         <rule groupId="org.glassfish.tyrus" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="org.glassfish.wasp" artifactId="wasp" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -207,8 +217,8 @@
         <rule groupId="ch.qos.logback" comparisonMethod="maven">
             <ignoreVersions>
                 <!-- Ignore various older versions of artifacts that are apparently referenced from arquillian-bom -->
-                <ignoreVersion type="regex">1\.4\.[0-5]</ignoreVersion>
-                <ignoreVersion type="regex">1\.3\.[0-5]</ignoreVersion>
+                <ignoreVersion type="regex">1\.4\.[0-6]</ignoreVersion>
+                <ignoreVersion type="regex">1\.3\.[0-6]</ignoreVersion>
                 <ignoreVersion type="regex">1\.2\..*</ignoreVersion>
             </ignoreVersions>
         </rule>
