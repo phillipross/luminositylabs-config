@@ -37,6 +37,11 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="io.opentelemetry" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="jakarta.activation" artifactId="jakarta.activation-api" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
