@@ -61,7 +61,7 @@
         <dependency.arquillian.version>1.7.0.Final</dependency.arquillian.version>
         <dependency.arquillian-payara-containers.version>3.0.alpha8</dependency.arquillian-payara-containers.version>
         <!--<dependency.payara.version>6.2023.3</dependency.payara.version>-->
-        <dependency.payara.version>6.2023.5</dependency.payara.version>
+        <dependency.payara.version>6.2023.6</dependency.payara.version>
         <dependency.payara.security-connectors-api.version>3.0.alpha6</dependency.payara.security-connectors-api.version>
 
         <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
