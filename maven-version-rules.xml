@@ -36,6 +36,11 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="fish.payara.transformer" artifactId="fish.payara.transformer.payara" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="io.opentelemetry" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
@@ -246,8 +251,8 @@
         <rule groupId="ch.qos.logback" comparisonMethod="maven">
             <ignoreVersions>
                 <!-- Ignore various older versions of artifacts that are apparently referenced from arquillian-bom -->
-                <ignoreVersion type="regex">1\.4\.[0-9]</ignoreVersion>
-                <ignoreVersion type="regex">1\.3\.[0-9]</ignoreVersion>
+                <ignoreVersion type="regex">1\.4\.([0-9]|1[0-1])</ignoreVersion>
+                <ignoreVersion type="regex">1\.3\.([0-9]|1[0-1])</ignoreVersion>
                 <ignoreVersion type="regex">1\.2\..*</ignoreVersion>
             </ignoreVersions>
         </rule>

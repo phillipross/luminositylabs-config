@@ -57,11 +57,9 @@
 
     <properties>
         <!-- Dependency versions -->
-        <!--<dependency.arquillian.version>1.7.0.Alpha14</dependency.arquillian.version>-->
-        <dependency.arquillian.version>1.7.0.Final</dependency.arquillian.version>
+        <dependency.arquillian.version>1.7.1.Final</dependency.arquillian.version>
         <dependency.arquillian-payara-containers.version>3.0.alpha8</dependency.arquillian-payara-containers.version>
-        <!--<dependency.payara.version>6.2023.3</dependency.payara.version>-->
-        <dependency.payara.version>6.2023.7</dependency.payara.version>
+        <dependency.payara.version>6.2023.8</dependency.payara.version>
         <dependency.payara.security-connectors-api.version>3.0.alpha6</dependency.payara.security-connectors-api.version>
 
         <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
@@ -143,13 +141,6 @@
                 <groupId>fish.payara.security.connectors</groupId>
                 <artifactId>security-connectors-api</artifactId>
                 <version>${dependency.payara.security-connectors-api.version}</version>
-            </dependency>
-            <!-- Explicitly define a version here for opentracing-api since it's omitted from payara-bom, which
-                 prevents the maven site plugin from completing successfully. -->
-            <dependency>
-                <groupId>io.opentracing</groupId>
-                <artifactId>opentracing-api</artifactId>
-                <version>0.33.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

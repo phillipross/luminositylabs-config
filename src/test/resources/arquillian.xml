@@ -10,7 +10,6 @@
             <property name="randomHttpPort">false</property>
             <property name="autoBindHttp">false</property>
             <property name="debug">false</property>
-            <property name="cmdOptions">-Djdk.util.zip.disableZip64ExtraFieldValidation=true</property>
         </configuration>
     </container>
     <container qualifier="payara-server-embedded">
