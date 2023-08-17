@@ -376,7 +376,8 @@
 
                 <!-- Ignore various older versions of artifacts that are apparently
                      referenced from arquillian-bom v1.6.0.Final -->
-                <ignoreVersion type="regex">1\.3\.[0-9]</ignoreVersion>
+                <ignoreVersion type="regex">1\.4\.([0-9]|1[0-1])</ignoreVersion>
+                <ignoreVersion type="regex">1\.3\.([0-9]|1[0-1])</ignoreVersion>
                 <ignoreVersion type="regex">1\.2\..*</ignoreVersion>
             </ignoreVersions>
         </rule>

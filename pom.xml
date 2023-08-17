@@ -57,11 +57,10 @@
 
     <properties>
         <!-- Dependency versions -->
-        <dependency.arquillian.version>1.7.0.Final</dependency.arquillian.version>
+        <dependency.arquillian.version>1.7.1.Final</dependency.arquillian.version>
         <dependency.arquillian-payara-containers.version>2.5</dependency.arquillian-payara-containers.version>
         <dependency.payara.version>5.2022.5</dependency.payara.version>
         <dependency.payara.security-connectors-api.version>2.4.0</dependency.payara.security-connectors-api.version>
-
         <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
     </properties>
 
