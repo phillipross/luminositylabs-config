@@ -21,6 +21,11 @@
                 <ignoreVersion type="regex">6\..*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="fish.payara.security.connectors" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">2.[5-9]\..*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="fish.payara.server.appclient" artifactId="payara-client" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">6\..*</ignoreVersion>
