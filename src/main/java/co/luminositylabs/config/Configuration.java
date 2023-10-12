@@ -17,6 +17,7 @@
 package co.luminositylabs.config;
 
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,6 +43,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  *
  * @author Phillip Ross
  */
+@SuppressFBWarnings({"PI_DO_NOT_REUSE_PUBLIC_IDENTIFIERS_CLASS_NAMES"})
 @ApplicationScoped
 public class Configuration implements Serializable {
 
