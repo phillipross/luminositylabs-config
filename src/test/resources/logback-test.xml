@@ -10,6 +10,7 @@
         <appender-ref ref="STDOUT" />
     </root>
 
+    <logger name="org.eclipse.aether" level="ERROR"/>
     <logger name="org.hibernate.validator" level="ERROR"/>
     <logger name="org.jboss.logging" level="ERROR"/>
     <logger name="org.jboss.weld" level="ERROR"/>
