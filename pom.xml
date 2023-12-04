@@ -67,6 +67,11 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${dependency.logback.version}</version>
+            </dependency>
             <!-- The arquillian-bom dependency imports slf4j-api and slfj-simple which may be defined with older
                  versions and require overriding to get the latest versions. -->
             <dependency>
@@ -84,63 +89,6 @@
                 <version>${dependency.payara.version}</version>
                 <scope>import</scope>
                 <type>pom</type>
-            </dependency>
-            <!-- The payara-bom artifact may declare transitive dependencies for artifacts in the fish.payara.arquillian
-                 artifact group with versions that are not the latest.  Declare the individual artifacts explicitly to
-                 prevent the versions plugin from reporting the artifacts not being the latest versions -->
-            <dependency>
-                <groupId>fish.payara.arquillian</groupId>
-                <artifactId>arquillian-payara-micro-managed</artifactId>
-                <version>${dependency.arquillian-payara-containers.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>fish.payara.arquillian</groupId>
-                <artifactId>arquillian-payara-server-embedded</artifactId>
-                <version>${dependency.arquillian-payara-containers.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>fish.payara.arquillian</groupId>
-                <artifactId>arquillian-payara-server-managed</artifactId>
-                <version>${dependency.arquillian-payara-containers.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>fish.payara.arquillian</groupId>
-                <artifactId>arquillian-payara-server-remote</artifactId>
-                <version>${dependency.arquillian-payara-containers.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>fish.payara.arquillian</groupId>
-                <artifactId>payara-client-ee9</artifactId>
-                <version>${dependency.arquillian-payara-containers.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>fish.payara.arquillian</groupId>
-                <artifactId>payara-micro-deployer</artifactId>
-                <version>${dependency.arquillian-payara-containers.version}</version>
-                <scope>test</scope>
-                <type>war</type>
-            </dependency>
-            <dependency>
-                <groupId>fish.payara.arquillian</groupId>
-                <artifactId>payara-micro-remote</artifactId>
-                <version>${dependency.arquillian-payara-containers.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <!-- The Payara security connectors are not separately versioned. -->
-            <dependency>
-                <groupId>fish.payara.security.connectors</groupId>
-                <artifactId>openid-standalone</artifactId>
-                <version>${dependency.payara.security-connectors-api.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>fish.payara.security.connectors</groupId>
-                <artifactId>security-connectors-api</artifactId>
-                <version>${dependency.payara.security-connectors-api.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -200,15 +148,10 @@
                 <arquillian.launch>payara-micro-managed</arquillian.launch>
             </properties>
             <dependencies>
-                <!-- Declaring slf4j dependency is required here to override the slf4j classes that seem to be shaded
-                     into payara which breaks logging functionality -->
-                <dependency>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                </dependency>
                 <dependency>
                     <groupId>fish.payara.arquillian</groupId>
                     <artifactId>arquillian-payara-micro-managed</artifactId>
+                    <version>${dependency.arquillian-payara-containers.version}</version>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
@@ -233,6 +176,7 @@
                 <dependency>
                     <groupId>fish.payara.arquillian</groupId>
                     <artifactId>arquillian-payara-server-embedded</artifactId>
+                    <version>${dependency.arquillian-payara-containers.version}</version>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
