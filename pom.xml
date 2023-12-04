@@ -66,6 +66,11 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${dependency.logback.version}</version>
+            </dependency>
             <!-- The arquillian-bom dependency imports slf4j-api and slfj-simple which may be defined with older
                  versions and require overriding to get the latest versions. -->
             <dependency>
@@ -205,12 +210,6 @@
                 <arquillian.launch>payara-micro-managed</arquillian.launch>
             </properties>
             <dependencies>
-                <!-- Declaring slf4j dependency is required here to override the slf4j classes that seem to be shaded
-                     into payara which breaks logging functionality -->
-                <dependency>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                </dependency>
                 <dependency>
                     <groupId>fish.payara.arquillian</groupId>
                     <artifactId>arquillian-payara-micro-managed</artifactId>
