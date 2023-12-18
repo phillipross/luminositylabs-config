@@ -59,8 +59,7 @@
         <!-- Dependency versions -->
         <dependency.arquillian.version>1.8.0.Final</dependency.arquillian.version>
         <dependency.arquillian-payara-containers.version>3.0.alpha8</dependency.arquillian-payara-containers.version>
-        <dependency.payara.version>6.2023.11</dependency.payara.version>
-        <dependency.payara.security-connectors-api.version>3.0.alpha6</dependency.payara.security-connectors-api.version>
+        <dependency.payara.version>6.2023.12</dependency.payara.version>
 
         <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
     </properties>
@@ -148,6 +147,8 @@
                 <arquillian.launch>payara-micro-managed</arquillian.launch>
             </properties>
             <dependencies>
+                <!-- payara-bom specifies an older version of arquillian-payara-micro-managed artifact so an explicit
+                     dependency is declared here using the latest version of the artifact. -->
                 <dependency>
                     <groupId>fish.payara.arquillian</groupId>
                     <artifactId>arquillian-payara-micro-managed</artifactId>
@@ -173,6 +174,8 @@
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-api</artifactId>
                 </dependency>
+                <!-- payara-bom specifies an older version of arquillian-payara-micro-managed artifact so an explicit
+                     dependency is declared here using the latest version of the artifact. -->
                 <dependency>
                     <groupId>fish.payara.arquillian</groupId>
                     <artifactId>arquillian-payara-server-embedded</artifactId>
