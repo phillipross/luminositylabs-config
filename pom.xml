@@ -61,11 +61,14 @@
         <dependency.arquillian-payara-containers.version>2.5</dependency.arquillian-payara-containers.version>
         <dependency.payara.version>5.2022.5</dependency.payara.version>
         <dependency.payara.security-connectors-api.version>2.4.0</dependency.payara.security-connectors-api.version>
-        <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!-- Some dependency (probably one of the BOMs) in the project has a reference to an older version the
+                 logback-classic artifact, which causes the maven-versions-plugin to report on the outdated version.
+                 This has no bearing on maven's resolution of the dependencies, but the following dependency is declared
+                 explicitly to force the plugin to NOT pay attention to the older version. -->
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
@@ -224,6 +227,41 @@
         </profile>
         <profile>
             <id>payara-server-embedded</id>
+            <properties>
+                <arquillian.launch>payara-server-embedded</arquillian.launch>
+            </properties>
+            <dependencies>
+                <!-- Declaring slf4j dependency is required here to override the slf4j classes that seem to be shaded
+                     into payara which breaks logging functionality -->
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>fish.payara.arquillian</groupId>
+                    <artifactId>arquillian-payara-server-embedded</artifactId>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>fish.payara.extras</groupId>
+                    <artifactId>payara-embedded-all</artifactId>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <configuration>
+                            <argLine>--add-opens java.base/java.lang=ALL-UNNAMED  --add-opens=java.base/sun.net.www=ALL-UNNAMED --add-opens=java.base/sun.security.util=ALL-UNNAMED   --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/sun.net.www.protocol.jar=ALL-UNNAMED --add-opens=java.naming/javax.naming.spi=ALL-UNNAMED</argLine>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>payara-server-embedded-no-jpms</id>
             <properties>
                 <arquillian.launch>payara-server-embedded</arquillian.launch>
             </properties>

@@ -11,18 +11,26 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-22.04]
-        jdk_version: [8.0.382-zulu, 11.0.20-zulu]
-        maven_version: [3.9.5]
+        jdk_version: [8.0.392-zulu, 11.0.21-zulu, 17.0.9-zulu]
+        maven_version: [3.9.6]
+        payara_server_embedded_profile_name: [payara-server-embedded, payara-server-embedded-no-jpms]
         include:
           - os: ubuntu-22.04
-            jdk_version: 8.0.382-zulu
-            zulu_version: 8.72.0.17
-            maven_version: 3.9.5
+            jdk_version: 8.0.392-zulu
+            zulu_version: 8.74.0.17
+            maven_version: 3.9.6
             maven_deploy: true
             docker_build: true
             maven_docker_container_image_repo: luminositylabs
             maven_docker_container_image_name: maven
-            maven_docker_container_image_tag: 3.9.5_openjdk-8u382_zulu-alpine-8.72.0.17
+            maven_docker_container_image_tag: 3.9.6_openjdk-8u392_zulu-alpine-8.74.0.17
+        exclude:
+          - jdk_version: 8.0.392-zulu
+            payara_server_embedded_profile_name: payara-server-embedded
+          - jdk_version: 11.0.21-zulu
+            payara_server_embedded_profile_name: payara-server-embedded-no-jpms
+          - jdk_version: 17.0.9-zulu
+            payara_server_embedded_profile_name: payara-server-embedded-no-jpms
     name: Build on OS ${{ matrix.os }} with Maven ${{ matrix.maven_version }} using JDK ${{ matrix.jdk_version }}
     runs-on: ${{ matrix.os }}
     env:
@@ -81,7 +89,7 @@ jobs:
       run: mvn -U -V -s ${{ env.SETTINGS }} -P${{ env.PROFILES }} ${{ env.MAVEN_PROPS }} clean install
 
     - name: Maven verify with payara embedded profile
-      run: mvn -U -V -s ${{ env.SETTINGS }} -P${{ env.PROFILES }},payara-server-embedded ${{ env.MAVEN_PROPS }} verify
+      run: mvn -U -V -s ${{ env.SETTINGS }} -P${{ env.PROFILES }},${{ matrix.payara_server_embedded_profile_name }} ${{ env.MAVEN_PROPS }} verify
 
     - name: Maven generate site
       run: mvn -U -V -s ${{ env.SETTINGS }} -P${{ env.PROFILES }} ${{ env.MAVEN_PROPS }} site site:stage
