@@ -60,8 +60,6 @@
         <dependency.arquillian.version>1.8.0.Final</dependency.arquillian.version>
         <dependency.arquillian-payara-containers.version>3.0.alpha8</dependency.arquillian-payara-containers.version>
         <dependency.payara.version>6.2023.12</dependency.payara.version>
-
-        <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
     </properties>
 
     <dependencyManagement>
