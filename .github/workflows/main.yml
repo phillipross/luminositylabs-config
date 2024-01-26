@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-22.04]
-        jdk_version: [8.0.392-zulu, 11.0.21-zulu, 17.0.9-zulu]
+        jdk_version: [8.0.392-zulu, 11.0.22-zulu, 17.0.10-zulu]
         maven_version: [3.9.6]
         payara_server_embedded_profile_name: [payara-server-embedded, payara-server-embedded-no-jpms]
         include:
@@ -27,9 +27,9 @@ jobs:
         exclude:
           - jdk_version: 8.0.392-zulu
             payara_server_embedded_profile_name: payara-server-embedded
-          - jdk_version: 11.0.21-zulu
+          - jdk_version: 11.0.22-zulu
             payara_server_embedded_profile_name: payara-server-embedded-no-jpms
-          - jdk_version: 17.0.9-zulu
+          - jdk_version: 17.0.10-zulu
             payara_server_embedded_profile_name: payara-server-embedded-no-jpms
     name: Build on OS ${{ matrix.os }} with Maven ${{ matrix.maven_version }} using JDK ${{ matrix.jdk_version }}
     runs-on: ${{ matrix.os }}
