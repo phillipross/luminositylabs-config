@@ -65,15 +65,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- Some dependency (probably one of the BOMs) in the project has a reference to an older version the
-                 logback-classic artifact, which causes the maven-versions-plugin to report on the outdated version.
-                 This has no bearing on maven's resolution of the dependencies, but the following dependency is declared
-                 explicitly to force the plugin to NOT pay attention to the older version. -->
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-classic</artifactId>
-                <version>${dependency.logback.version}</version>
-            </dependency>
             <!-- The arquillian-bom dependency imports slf4j-api and slfj-simple which may be defined with older
                  versions and require overriding to get the latest versions. -->
             <dependency>
