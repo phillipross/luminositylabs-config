@@ -23,7 +23,8 @@
         </rule>
         <rule groupId="fish.payara.security.connectors" comparisonMethod="maven">
             <ignoreVersions>
-                <ignoreVersion type="regex">2.[5-9]\..*</ignoreVersion>
+                <ignoreVersion type="regex">2\.[5-9]\..*</ignoreVersion>
+                <ignoreVersion type="regex">3\..*</ignoreVersion>
             </ignoreVersions>
         </rule>
         <rule groupId="fish.payara.server.appclient" artifactId="payara-client" comparisonMethod="maven">
@@ -382,12 +383,12 @@
         <rule groupId="ch.qos.logback" comparisonMethod="maven">
             <ignoreVersions>
                 <!-- Pin logback version to pre-V1.4 -->
-                <ignoreVersion type="regex">1\.4\..*</ignoreVersion>
+                <ignoreVersion type="regex">1\.[4-5]\..*</ignoreVersion>
             </ignoreVersions>
         </rule>
 
         <!-- Ignore all versions of dependencies that are not explicitly defined in this project,
-              but are apparently imported from arquillian-bom v1.6.0.Final -->
+              but are apparently imported from arquillian-bom v1.8.0.Final -->
         <rule groupId="com.google.inject" artifactId="guice" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
