@@ -21,11 +21,11 @@
     <parent>
         <groupId>co.luminositylabs.oss</groupId>
         <artifactId>luminositylabs-oss-parent</artifactId>
-        <version>0.3.2-SNAPSHOT</version>
+        <version>0.4.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>luminositylabs-config</artifactId>
-    <version>0.11.0.71-SNAPSHOT</version>
+    <version>0.17.0.71-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>luminositylabs-config</name>
