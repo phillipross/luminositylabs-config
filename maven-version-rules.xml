@@ -141,6 +141,11 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="jakarta.ws.rs" artifactId="jakarta.ws.rs-api" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="jakarta.xml.bind" artifactId="jakarta.xml.bind-api" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
