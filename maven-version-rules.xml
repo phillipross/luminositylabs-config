@@ -301,6 +301,13 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <!-- Ignore artifacts declared in the payara-bom which have newer versions.  This works around a complex issue
+             with payara arquillian containers erroneously showing up with outdated transient dependency versions. -->
+        <rule groupId="fish.payara.arquillian" artifactId="payara-micro-deployer" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
 
         <!-- Ignore all versions of dependencies that are not explicitly defined in this project, but are apparently
              imported from arquillian-bom -->
