@@ -59,7 +59,7 @@
         <!-- Dependency versions -->
         <dependency.arquillian.version>1.8.0.Final</dependency.arquillian.version>
         <dependency.arquillian-payara-containers.version>3.0</dependency.arquillian-payara-containers.version>
-        <dependency.payara.version>6.2024.5</dependency.payara.version>
+        <dependency.payara.version>6.2024.6</dependency.payara.version>
     </properties>
 
     <dependencyManagement>
