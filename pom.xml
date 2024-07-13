@@ -57,9 +57,10 @@
 
     <properties>
         <!-- Dependency versions -->
-        <dependency.arquillian.version>1.8.1.Final</dependency.arquillian.version>
+        <dependency.arquillian.version>1.9.0.Final</dependency.arquillian.version>
         <dependency.arquillian-payara-containers.version>3.0</dependency.arquillian-payara-containers.version>
         <dependency.payara.version>6.2024.6</dependency.payara.version>
+        <dependency.shrinkwrap-resolver.version>3.3.0</dependency.shrinkwrap-resolver.version>
     </properties>
 
     <dependencyManagement>
@@ -132,6 +133,7 @@
         <dependency>
             <groupId>org.jboss.shrinkwrap.resolver</groupId>
             <artifactId>shrinkwrap-resolver-depchain</artifactId>
+            <version>${dependency.shrinkwrap-resolver.version}</version>
             <scope>test</scope>
             <type>pom</type>
         </dependency>
