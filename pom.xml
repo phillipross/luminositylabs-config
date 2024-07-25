@@ -151,6 +151,7 @@
                     <systemPropertyVariables>
                         <arquillian.launch>${arquillian.launch}</arquillian.launch>
                         <java.util.logging.config.file>${project.build.testOutputDirectory}/logging.properties</java.util.logging.config.file>
+                        <org.jboss.arquillian.protocol.servlet5.ServletUtil.debug>false</org.jboss.arquillian.protocol.servlet5.ServletUtil.debug>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
