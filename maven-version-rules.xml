@@ -32,13 +32,14 @@
                 <ignoreVersion type="regex">6\..*</ignoreVersion>
             </ignoreVersions>
         </rule>
-
-        <!-- Ignore all versions of all artifacts specified in the payara bom -->
-        <rule groupId="com.ibm.jbatch" comparisonMethod="maven">
+        <!-- Pin payara arquillian containers version to latest version compatible with pre-v6 payara versions -->
+        <rule groupId="fish.payara.arquillian" comparisonMethod="maven">
             <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
+                <ignoreVersion type="regex">3\.[0-1]</ignoreVersion>
             </ignoreVersions>
         </rule>
+
+        <!-- Ignore all versions of all artifacts specified in the payara bom -->
         <rule groupId="com.fasterxml.jackson.*" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
@@ -59,7 +60,7 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="com.hazelcast" artifactId="hazelcast-kubernetes" comparisonMethod="maven">
+        <rule groupId="com.ibm.jbatch" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -80,16 +81,6 @@
             </ignoreVersions>
         </rule>
         <rule groupId="com.sun.xml.bind" artifactId="jaxb-osgi" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="io.opentracing" artifactId="opentracing-api" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="io.opentracing" artifactId="opentracing-util" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -239,11 +230,6 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="junit" artifactId="junit" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
         <rule groupId="org.codehaus.woodstox" artifactId="stax2-api" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
@@ -264,11 +250,6 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="org.fusesource.jansi" artifactId="jansi" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
         <rule groupId="org.glassfish" artifactId="jakarta.el" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
@@ -280,11 +261,6 @@
             </ignoreVersions>
         </rule>
         <rule groupId="org.glassfish" artifactId="jakarta.json" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.glassfish" artifactId="javax.enterprise.concurrent" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -334,12 +310,12 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="org.jsoup" artifactId="jsoup" comparisonMethod="maven">
+        <rule groupId="org.osgi" artifactId="osgi.annotation" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="org.osgi" artifactId="org.osgi.dto" comparisonMethod="maven">
+        <rule groupId="org.osgi" artifactId="osgi.core" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -350,16 +326,6 @@
             </ignoreVersions>
         </rule>
         <rule groupId="org.yaml" artifactId="snakeyaml" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.osgi" artifactId="osgi.annotation" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.osgi" artifactId="osgi.core" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -384,165 +350,6 @@
         <rule groupId="ch.qos.logback" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">1\.[4-9]\..*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-
-        <!-- Ignore all versions of dependencies that are not explicitly defined in this project,
-              but are apparently imported from arquillian-bom v1.8.0.Final -->
-        <rule groupId="com.google.inject" artifactId="guice" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.apache.commons" artifactId="commons-lang3" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.apache.maven" artifactId="maven-artifact" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.apache.maven" artifactId="maven-builder-support" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.apache.maven" artifactId="maven-compat" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.apache.maven" artifactId="maven-core" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.apache.maven" artifactId="maven-embedder" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.apache.maven" artifactId="maven-model" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.apache.maven" artifactId="maven-model-builder" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.apache.maven" artifactId="maven-plugin-api" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.apache.maven" artifactId="maven-repository-metadata" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.apache.maven" artifactId="maven-resolver-provider" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.apache.maven" artifactId="maven-settings" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.apache.maven" artifactId="maven-settings-provider" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.apache.maven" artifactId="maven-slf4j-provider" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.apache.maven.plugin-tools" artifactId="maven-plugin-annotations" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.apache.maven.resolver" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.apache.maven.wagon" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.codehaus.plexus" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.eclipse.sisu" artifactId="org.eclipse.sisu" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.hamcrest" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.jboss.shrinkwrap.resolver" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.mockito" artifactId="mockito-core" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.powermock" artifactId="powermock-reflect" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.xmlunit" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-
-        <!-- Ignore versions of maven shared utils since some plugins user an older version and it's never
-             explicitly defined as a dependency in this project. -->
-        <rule groupId="org.apache.maven.shared" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-
-        <!-- Ignore other dependencies with newer versions that are not explicitly defined
-             as a dependency in this project. -->
-        <rule groupId="com.google.guava" artifactId="failureaccess" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="com.google.guava" artifactId="guava" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="commons-cli" artifactId="commons-cli" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="commons-io" artifactId="commons-io" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
 
