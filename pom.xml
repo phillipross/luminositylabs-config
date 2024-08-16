@@ -60,14 +60,12 @@
         <dependency.arquillian.version>1.9.1.Final</dependency.arquillian.version>
         <dependency.arquillian-payara-containers.version>2.5</dependency.arquillian-payara-containers.version>
         <dependency.payara.version>5.2022.5</dependency.payara.version>
-        <dependency.payara.security-connectors-api.version>2.4.0</dependency.payara.security-connectors-api.version>
-        <dependency.shrinkwrap-resolver.version>3.3.0</dependency.shrinkwrap-resolver.version>
+        <dependency.shrinkwrap-resolver.version>3.3.1</dependency.shrinkwrap-resolver.version>
+        <dependency.maven-shared-utils.version>3.4.2</dependency.maven-shared-utils.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!-- The arquillian-bom dependency imports slf4j-api and slfj-simple which may be defined with older
-                 versions and require overriding to get the latest versions. -->
             <dependency>
                 <groupId>org.jboss.arquillian</groupId>
                 <artifactId>arquillian-bom</artifactId>
@@ -136,16 +134,13 @@
                 <version>${dependency.arquillian-payara-containers.version}</version>
                 <scope>test</scope>
             </dependency>
-            <!-- The Payara security connectors are not separately versioned. -->
+            <!-- Declare newer version of maven-shared-utils to override the vulnerable transitive dependency version
+                 imported from shrinkwrap-resolver-depchain  -->
             <dependency>
-                <groupId>fish.payara.security.connectors</groupId>
-                <artifactId>openid-standalone</artifactId>
-                <version>${dependency.payara.security-connectors-api.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>fish.payara.security.connectors</groupId>
-                <artifactId>security-connectors-api</artifactId>
-                <version>${dependency.payara.security-connectors-api.version}</version>
+                <groupId>org.apache.maven.shared</groupId>
+                <artifactId>maven-shared-utils</artifactId>
+                <version>${dependency.maven-shared-utils.version}</version>
+                <scope>test</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
