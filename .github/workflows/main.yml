@@ -11,26 +11,18 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-24.04]
-        jdk_version: [8.0.422-zulu, 11.0.24-zulu, 17.0.12-zulu]
+        jdk_version: [11.0.24-zulu, 17.0.12-zulu, 21.0.4-zulu]
         maven_version: [3.9.8]
-        payara_server_embedded_profile_name: [payara-server-embedded, payara-server-embedded-no-jpms]
         include:
           - os: ubuntu-24.04
-            jdk_version: 8.0.422-zulu
-            zulu_version: 8.80.0.17
+            jdk_version: 11.0.24-zulu
+            zulu_version: 11.74.15
             maven_version: 3.9.8
             maven_deploy: true
             docker_build: true
             maven_docker_container_image_repo: luminositylabs
             maven_docker_container_image_name: maven
-            maven_docker_container_image_tag: 3.9.8_openjdk-8u422_zulu-alpine-8.80.0.17
-        exclude:
-          - jdk_version: 8.0.422-zulu
-            payara_server_embedded_profile_name: payara-server-embedded
-          - jdk_version: 11.0.24-zulu
-            payara_server_embedded_profile_name: payara-server-embedded-no-jpms
-          - jdk_version: 17.0.12-zulu
-            payara_server_embedded_profile_name: payara-server-embedded-no-jpms
+            maven_docker_container_image_tag: 3.9.8_openjdk-11.0.24_zulu-alpine-11.74.15
     name: Build on OS ${{ matrix.os }} with Maven ${{ matrix.maven_version }} using JDK ${{ matrix.jdk_version }}
     runs-on: ${{ matrix.os }}
     env:
@@ -95,7 +87,7 @@ jobs:
       run: mvn -U -V -s ${{ env.SETTINGS }} -P${{ env.PROFILES }} ${{ env.MAVEN_PROPS }} site site:stage
 
     - name: Maven deploy
-      if: ${{ matrix.maven_deploy && (github.ref == 'refs/heads/jakarta_ee_8') && (github.event_name != 'pull_request')  }}
+      if: ${{ matrix.maven_deploy && (github.ref == 'refs/heads/jakarta_ee_9_1') && (github.event_name != 'pull_request')  }}
       env:
         OSSRHU: ${{ secrets.OSSRHU }}
         OSSRHT: ${{ secrets.OSSRHT }}

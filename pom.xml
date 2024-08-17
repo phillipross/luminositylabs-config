@@ -21,11 +21,11 @@
     <parent>
         <groupId>co.luminositylabs.oss</groupId>
         <artifactId>luminositylabs-oss-parent</artifactId>
-        <version>0.2.8-SNAPSHOT</version>
+        <version>0.3.3-SNAPSHOT</version>
     </parent>
 
     <artifactId>luminositylabs-config</artifactId>
-    <version>0.8.0.71-SNAPSHOT</version>
+    <version>0.11.0.71-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>luminositylabs-config</name>
@@ -58,8 +58,8 @@
     <properties>
         <!-- Dependency versions -->
         <dependency.arquillian.version>1.9.1.Final</dependency.arquillian.version>
-        <dependency.arquillian-payara-containers.version>2.5</dependency.arquillian-payara-containers.version>
-        <dependency.payara.version>5.2022.5</dependency.payara.version>
+        <dependency.arquillian-payara-containers.version>3.1</dependency.arquillian-payara-containers.version>
+        <dependency.payara.version>6.2024.8</dependency.payara.version>
         <dependency.shrinkwrap-resolver.version>3.3.1</dependency.shrinkwrap-resolver.version>
         <dependency.maven-shared-utils.version>3.4.2</dependency.maven-shared-utils.version>
     </properties>
@@ -73,18 +73,9 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
-            <!-- The payara-bom dependency imports fish.payara.arquillian artifacts which may be defined with older
-                 versions and require overriding to get the latest versions. -->
-            <dependency>
-                <groupId>fish.payara.api</groupId>
-                <artifactId>payara-bom</artifactId>
-                <version>${dependency.payara.version}</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
-            <!-- The payara-bom artifact may declare transitive dependencies for artifacts in the fish.payara.arquillian
-                 artifact group with versions that are not the latest.  Declare the individual artifacts explicitly to
-                 prevent the versions plugin from reporting the artifacts not being the latest versions -->
+            <!-- The payara arquillian dependencies defined in payara-bom may be older.  Newer versions are explicitly
+                 defined with the following declarations to override those in the payara-bom to prevent the
+                 versions-maven-plugin from reporting the artifacts not being the latest versions. -->
             <dependency>
                 <groupId>fish.payara.arquillian</groupId>
                 <artifactId>arquillian-payara-micro-managed</artifactId>
@@ -111,13 +102,7 @@
             </dependency>
             <dependency>
                 <groupId>fish.payara.arquillian</groupId>
-                <artifactId>payara-client-ee7</artifactId>
-                <version>${dependency.arquillian-payara-containers.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>fish.payara.arquillian</groupId>
-                <artifactId>payara-client-ee8</artifactId>
+                <artifactId>payara-client-ee9</artifactId>
                 <version>${dependency.arquillian-payara-containers.version}</version>
                 <scope>test</scope>
             </dependency>
@@ -128,11 +113,14 @@
                 <scope>test</scope>
                 <type>war</type>
             </dependency>
+            <!-- The payara-bom dependency imports fish.payara.arquillian artifacts which may be defined with older
+                 versions and require overriding to get the latest versions. -->
             <dependency>
-                <groupId>fish.payara.arquillian</groupId>
-                <artifactId>payara-micro-remote</artifactId>
-                <version>${dependency.arquillian-payara-containers.version}</version>
-                <scope>test</scope>
+                <groupId>fish.payara.api</groupId>
+                <artifactId>payara-bom</artifactId>
+                <version>${dependency.payara.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
             </dependency>
             <!-- Declare newer version of maven-shared-utils to override the vulnerable transitive dependency version
                  imported from shrinkwrap-resolver-depchain  -->
@@ -201,6 +189,8 @@
                 <arquillian.launch>payara-micro-managed</arquillian.launch>
             </properties>
             <dependencies>
+                <!-- payara-bom specifies an older version of arquillian-payara-micro-managed artifact so an explicit
+                     dependency is declared here using the latest version of the artifact. -->
                 <dependency>
                     <groupId>fish.payara.arquillian</groupId>
                     <artifactId>arquillian-payara-micro-managed</artifactId>
@@ -242,35 +232,11 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-failsafe-plugin</artifactId>
                         <configuration>
-                            <argLine>--add-opens java.base/java.lang=ALL-UNNAMED  --add-opens=java.base/sun.net.www=ALL-UNNAMED --add-opens=java.base/sun.security.util=ALL-UNNAMED   --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/sun.net.www.protocol.jar=ALL-UNNAMED --add-opens=java.naming/javax.naming.spi=ALL-UNNAMED</argLine>
+                            <argLine>--add-exports java.base/jdk.internal.ref=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED  --add-opens java.base/sun.nio.ch=ALL-UNNAMED --add-opens java.management/sun.management=ALL-UNNAMED --add-opens jdk.management/com.sun.management.internal=ALL-UNNAMED     --add-opens java.base/java.net=ALL-UNNAMED --add-opens java.base/sun.net.www.protocol.jar=ALL-UNNAMED --add-opens java.naming/javax.naming.spi=ALL-UNNAMED</argLine>
                         </configuration>
                     </plugin>
                 </plugins>
             </build>
-        </profile>
-        <profile>
-            <id>payara-server-embedded-no-jpms</id>
-            <properties>
-                <arquillian.launch>payara-server-embedded</arquillian.launch>
-            </properties>
-            <dependencies>
-                <!-- Declaring slf4j dependency is required here to override the slf4j classes that seem to be shaded
-                     into payara which breaks logging functionality -->
-                <dependency>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>fish.payara.arquillian</groupId>
-                    <artifactId>arquillian-payara-server-embedded</artifactId>
-                    <scope>test</scope>
-                </dependency>
-                <dependency>
-                    <groupId>fish.payara.extras</groupId>
-                    <artifactId>payara-embedded-all</artifactId>
-                    <scope>test</scope>
-                </dependency>
-            </dependencies>
         </profile>
     </profiles>
 </project>

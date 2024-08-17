@@ -5,46 +5,7 @@
         <ignoreVersion type="regex">.*[\.-](?i)([M|alpha|beta|rc]).*</ignoreVersion>
     </ignoreVersions>
     <rules>
-        <!-- Pin payara version to pre-v6 -->
-        <rule groupId="fish.payara.api" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">6\..*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="fish.payara.distributions" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">6\..*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="fish.payara.extras" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">6\..*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="fish.payara.security.connectors" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">2\.[5-9]\..*</ignoreVersion>
-                <ignoreVersion type="regex">3\..*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="fish.payara.server.appclient" artifactId="payara-client" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">6\..*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <!-- Pin payara arquillian containers version to latest version compatible with pre-v6 payara versions -->
-        <rule groupId="fish.payara.arquillian" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">3\.[0-1]</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-
         <!-- Ignore all versions of all artifacts specified in the payara bom -->
-        <rule groupId="com.fasterxml.jackson.*" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
         <rule groupId="com.fasterxml.woodstox" artifactId="woodstox-core" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
@@ -60,32 +21,22 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="com.ibm.jbatch" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="com.sun.activation" artifactId="jakarta.activation" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="com.sun.istack" artifactId="istack-commons-runtime" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="com.sun.mail" artifactId="jakarta.mail" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
         <rule groupId="com.sun.xml.bind" artifactId="jaxb-osgi" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="jakarta.activation" artifactId="jakarta.activation-api" comparisonMethod="maven">
+        <rule groupId="fish.payara.api" artifactId="payara-api" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="fish.payara.transformer" artifactId="fish.payara.transformer.payara" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="io.opentelemetry" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -95,12 +46,12 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="jakarta.batch" artifactId="jakarta.batch-api" comparisonMethod="maven">
+        <rule groupId="jakarta.authentication" artifactId="jakarta.authentication-api" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="jakarta.ejb" artifactId="jakarta.ejb-api" comparisonMethod="maven">
+        <rule groupId="jakarta.authorization" artifactId="jakarta.authorization-api" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -125,17 +76,7 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="jakarta.inject" artifactId="jakarta.inject-api" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
         <rule groupId="jakarta.interceptor" artifactId="jakarta.interceptor-api" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="jakarta.jms" artifactId="jakarta.jms-api" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -145,37 +86,12 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="jakarta.json.bind" artifactId="jakarta.json.bind-api" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="jakarta.jws" artifactId="jakarta.jws-api" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
         <rule groupId="jakarta.mail" artifactId="jakarta.mail-api" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="jakarta.platform" artifactId="jakarta.jakartaee-api" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="jakarta.platform" artifactId="jakarta.jakartaee-bom" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="jakarta.platform" artifactId="jakarta.jakartaee-web-api" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="jakarta.resource" artifactId="jakarta.resource-api" comparisonMethod="maven">
+        <rule groupId="jakarta.persistence" artifactId="jakarta.persistence-api" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -200,17 +116,17 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="jakarta.transaction" artifactId="jakarta.transaction-api" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
         <rule groupId="jakarta.validation" artifactId="jakarta.validation-api" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
         <rule groupId="jakarta.websocket" artifactId="jakarta.websocket-api" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="jakarta.websocket" artifactId="jakarta.websocket-client-api" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -225,12 +141,7 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="jakarta.xml.ws" artifactId="jakarta.xml.ws-api" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.codehaus.woodstox" artifactId="stax2-api" comparisonMethod="maven">
+        <rule groupId="org.apache.santuario" artifactId="xmlsec" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -240,7 +151,27 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="org.eclipse.angus" artifactId="angus-activation" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="org.eclipse.angus" artifactId="angus-mail" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="org.eclipse.microprofile" artifactId="microprofile" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="org.eclipse.parsson" artifactId="jakarta.json" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="org.eclipse.parsson" artifactId="parsson-media" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -250,22 +181,7 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="org.glassfish" artifactId="jakarta.el" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
         <rule groupId="org.glassfish" artifactId="jakarta.faces" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.glassfish" artifactId="jakarta.json" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.glassfish" artifactId="jsonp-jaxrs" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -290,7 +206,7 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="org.glassfish.mq" artifactId="mq-distribution" comparisonMethod="maven">
+        <rule groupId="org.glassfish.mq" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -300,58 +216,10 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="org.hibernate.validator" artifactId="hibernate-validator" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
         <rule groupId="org.jboss.weld" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="org.osgi" artifactId="osgi.annotation" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.osgi" artifactId="osgi.core" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.ow2.asm" artifactId="asm" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-        <rule groupId="org.yaml" artifactId="snakeyaml" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">.*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-
-        <!-- Pin checkstyle version to pre-V10 -->
-        <rule groupId="com.puppycrawl.tools" artifactId="checkstyle" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">10\..*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-
-        <!-- Pin testng version to 7.5.x (v7.6+ requires Java11) -->
-        <rule groupId="org.testng" artifactId="testng" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">7\.[6-9]\..*</ignoreVersion>
-                <ignoreVersion type="regex">7\.10\..*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-
-        <!-- Pin logback version to v1.3.x (v1.4.0+ requires Java11) -->
-        <rule groupId="ch.qos.logback" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">1\.[4-9]\..*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
-
     </rules>
 </ruleset>
