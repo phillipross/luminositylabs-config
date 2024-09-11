@@ -204,6 +204,20 @@
                     <scope>test</scope>
                 </dependency>
             </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <!-- payara-micro arquillian doesn't work with IPv6 interface scoped hostnames -->
+                                <payara.cmdOptions>-Djava.net.preferIPv4Stack=true</payara.cmdOptions>
+                            </systemPropertyVariables>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
         <profile>
             <id>payara-server-embedded</id>
