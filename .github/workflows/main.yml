@@ -15,7 +15,7 @@ jobs:
         maven_version: [3.9.9]
         include:
           - os: ubuntu-24.04
-            jdk_version: 11.0.24-zulu
+            jdk_version: 11.0.25-zulu
             zulu_version: 11.76.21
             maven_version: 3.9.9
             maven_deploy: true
