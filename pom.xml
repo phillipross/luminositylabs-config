@@ -57,7 +57,7 @@
 
     <properties>
         <!-- Dependency versions -->
-        <dependency.arquillian.version>1.9.2.Final</dependency.arquillian.version>
+        <dependency.arquillian.version>1.9.3.Final</dependency.arquillian.version>
         <dependency.arquillian-payara-containers.version>2.5</dependency.arquillian-payara-containers.version>
         <dependency.payara.version>5.2022.5</dependency.payara.version>
         <dependency.shrinkwrap-resolver.version>3.3.3</dependency.shrinkwrap-resolver.version>
