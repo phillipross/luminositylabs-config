@@ -354,7 +354,7 @@
         <rule groupId="org.testng" artifactId="testng" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">7\.[6-9]\..*</ignoreVersion>
-                <ignoreVersion type="regex">7\.10\..*</ignoreVersion>
+                <ignoreVersion type="regex">7\.1\d+\..*</ignoreVersion>
             </ignoreVersions>
         </rule>
 
