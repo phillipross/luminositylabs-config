@@ -51,7 +51,7 @@
 
     <scm>
         <url>https://github.com/luminositylabs/luminositylabs-config</url>
-        <connection>scm:git:https://github.com/luminositylabs/luminositylabs-config.git</connection>
+        <connection>scm:git:git@github.com:luminositylabs/luminositylabs-config.git</connection>
         <tag>HEAD</tag>
     </scm>
 
