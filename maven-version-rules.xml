@@ -170,6 +170,11 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="jakarta.platform" artifactId="jakarta.jakartaee-api" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="jakarta.platform" artifactId="jakarta.jakartaee-web-api" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>

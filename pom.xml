@@ -21,7 +21,7 @@
     <parent>
         <groupId>co.luminositylabs.oss</groupId>
         <artifactId>luminositylabs-oss-parent</artifactId>
-        <version>0.2.8</version>
+        <version>0.2.9-SNAPSHOT</version>
     </parent>
 
     <artifactId>luminositylabs-config</artifactId>
@@ -66,6 +66,8 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- The arquillian-bom dependency imports slf4j-api and slfj-simple which may be defined with older
+                 versions and require overriding to get the latest versions. -->
             <dependency>
                 <groupId>org.jboss.arquillian</groupId>
                 <artifactId>arquillian-bom</artifactId>
@@ -201,6 +203,8 @@
                 <arquillian.launch>payara-micro-managed</arquillian.launch>
             </properties>
             <dependencies>
+                <!-- payara-bom specifies an older version of arquillian-payara-micro-managed artifact so an explicit
+                     dependency is declared here using the latest version of the artifact. -->
                 <dependency>
                     <groupId>fish.payara.arquillian</groupId>
                     <artifactId>arquillian-payara-micro-managed</artifactId>
