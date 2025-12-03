@@ -5,6 +5,27 @@
         <ignoreVersion type="regex">.*[\.-](?i)([M|alpha|beta|rc]).*</ignoreVersion>
     </ignoreVersions>
     <rules>
+        <!-- Pin payara version to pre-v7 -->
+        <rule groupId="fish.payara.api" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">7\..*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="fish.payara.distributions" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">7\..*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="fish.payara.extras" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">7\..*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="fish.payara.server" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">7\..*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <!-- Ignore all versions of all artifacts specified in the payara bom -->
         <rule groupId="com.fasterxml.jackson" comparisonMethod="maven">
             <ignoreVersions>
