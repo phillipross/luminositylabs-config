@@ -8,17 +8,17 @@
         <!-- Pin payara version to pre-v6 -->
         <rule groupId="fish.payara.api" comparisonMethod="maven">
             <ignoreVersions>
-                <ignoreVersion type="regex">6\..*</ignoreVersion>
+                <ignoreVersion type="regex">([6-9]|[1-9][0-9]+)\..*</ignoreVersion>
             </ignoreVersions>
         </rule>
         <rule groupId="fish.payara.distributions" comparisonMethod="maven">
             <ignoreVersions>
-                <ignoreVersion type="regex">6\..*</ignoreVersion>
+                <ignoreVersion type="regex">([6-9]|[1-9][0-9]+)\..*</ignoreVersion>
             </ignoreVersions>
         </rule>
         <rule groupId="fish.payara.extras" comparisonMethod="maven">
             <ignoreVersions>
-                <ignoreVersion type="regex">6\..*</ignoreVersion>
+                <ignoreVersion type="regex">([6-9]|[1-9][0-9]+)\..*</ignoreVersion>
             </ignoreVersions>
         </rule>
         <rule groupId="fish.payara.security.connectors" comparisonMethod="maven">
@@ -29,7 +29,7 @@
         </rule>
         <rule groupId="fish.payara.server.appclient" artifactId="payara-client" comparisonMethod="maven">
             <ignoreVersions>
-                <ignoreVersion type="regex">6\..*</ignoreVersion>
+                <ignoreVersion type="regex">([6-9]|[1-9][0-9]+)\..*</ignoreVersion>
             </ignoreVersions>
         </rule>
         <!-- Pin payara arquillian containers version to latest version compatible with pre-v6 payara versions -->
