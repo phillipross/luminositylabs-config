@@ -60,7 +60,7 @@
         <dependency.arquillian.version>1.10.0.Final</dependency.arquillian.version>
         <dependency.arquillian-payara-containers.version>2.5</dependency.arquillian-payara-containers.version>
         <dependency.payara.version>5.2022.5</dependency.payara.version>
-        <dependency.shrinkwrap-resolver.version>3.3.4</dependency.shrinkwrap-resolver.version>
+        <dependency.shrinkwrap-resolver.version>3.3.5</dependency.shrinkwrap-resolver.version>
         <dependency.maven-shared-utils.version>3.4.2</dependency.maven-shared-utils.version>
     </properties>
 
