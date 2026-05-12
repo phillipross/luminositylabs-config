@@ -21,12 +21,6 @@
                 <ignoreVersion type="regex">([6-9]|[1-9][0-9]+)\..*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="fish.payara.security.connectors" comparisonMethod="maven">
-            <ignoreVersions>
-                <ignoreVersion type="regex">2\.[5-9]\..*</ignoreVersion>
-                <ignoreVersion type="regex">3\..*</ignoreVersion>
-            </ignoreVersions>
-        </rule>
         <rule groupId="fish.payara.server.appclient" artifactId="payara-client" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">([6-9]|[1-9][0-9]+)\..*</ignoreVersion>
@@ -81,6 +75,16 @@
             </ignoreVersions>
         </rule>
         <rule groupId="com.sun.xml.bind" artifactId="jaxb-osgi" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="fish.payara.security.connectors" artifactId="openid-standalone" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="fish.payara.security.connectors" artifactId="security-connectors-api" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
