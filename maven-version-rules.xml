@@ -21,7 +21,12 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
-        <rule groupId="com.sun.xml.bind" artifactId="jaxb-osgi" comparisonMethod="maven">
+        <rule groupId="fish.payara.security.connectors" artifactId="openid-standalone" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="fish.payara.security.connectors" artifactId="security-connectors-api" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
@@ -71,7 +76,27 @@
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
         </rule>
+        <rule groupId="org.eclipse.microprofile.config" artifactId="microprofile-config-api" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="org.eclipse.microprofile.health" artifactId="microprofile-health-api" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="org.eclipse.microprofile.jwt" artifactId="microprofile-jwt-auth-api" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
         <rule groupId="org.glassfish.hk2" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+        <rule groupId="org.jboss.weld" artifactId="weld-api" comparisonMethod="maven">
             <ignoreVersions>
                 <ignoreVersion type="regex">.*</ignoreVersion>
             </ignoreVersions>
