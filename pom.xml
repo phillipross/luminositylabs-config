@@ -61,7 +61,6 @@
         <dependency.arquillian-payara-containers.version>3.1</dependency.arquillian-payara-containers.version>
         <dependency.payara.version>7.2026.9</dependency.payara.version>
         <dependency.shrinkwrap-resolver.version>3.3.7</dependency.shrinkwrap-resolver.version>
-        <dependency.maven-shared-utils.version>3.4.2</dependency.maven-shared-utils.version>
     </properties>
 
     <dependencyManagement>
@@ -129,14 +128,6 @@
                 <version>${dependency.payara.version}</version>
                 <scope>import</scope>
                 <type>pom</type>
-            </dependency>
-            <!-- Declare newer version of maven-shared-utils to override the vulnerable transitive dependency version
-                 imported from shrinkwrap-resolver-depchain  -->
-            <dependency>
-                <groupId>org.apache.maven.shared</groupId>
-                <artifactId>maven-shared-utils</artifactId>
-                <version>${dependency.maven-shared-utils.version}</version>
-                <scope>test</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
