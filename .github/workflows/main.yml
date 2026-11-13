@@ -79,7 +79,7 @@ jobs:
       env:
         MAVEN_GPG_KEY: ${{ secrets.MAVEN_GPG_KEY }}
         MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
-      run: ./mvnw -B -U -V -s ${{ env.SETTINGS }} -P${{ env.PROFILES }} ${{ env.MAVEN_PROPS }} clean install
+      run: ./mvnw -B -U -V -s ${{ env.SETTINGS }} -P${{ env.PROFILES }} ${{ env.MAVEN_PROPS }} -Dgpg.skip=true clean install
 
     - name: Maven verify with payara embedded profile
       env:
